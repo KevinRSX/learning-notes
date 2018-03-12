@@ -11,7 +11,7 @@ int main(int argc, char * argv[])
 	cout << "maxn(int a[],6) = " << maxn(a, 6) << endl;
 	double b[4] = { 1.23,11.2,6.4,2.26 };
 	cout << "maxn(double b[],4) = " << maxn(b, 4) << endl;
-	char * c[4] = { "DIU","La","Ma","DingYingSheung" };		//¡°ŒÅÄÇÂè£¬¶¥Ó²ÉÏ¡± -- Ô¬³ç»À
+	char * c[4] = { "DIU","La","Ma","DingNgangSheung" };		//¡°ŒÅÄÇÂè£¬¶¥Ó²ÉÏ¡± -- Ô¬³ç»À
 	cout << "maxn(char * c[],4) = " << maxn(c, 4) << endl;
 	return 0;
 }
