@@ -2,234 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40ab3f4c-c02a-441d-8fd7-38dacd0e183e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../Chapter02/assignments/as1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/assignments/as2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/assignments/as3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/assignments/as4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/assignments/as5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/assignments/as6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/assignments/as7.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/examples/convert.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/examples/getinfo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/examples/ourfunc.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter02/examples/sqrt.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/assignments/as1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/assignments/as2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/assignments/as3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/assignments/as4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/assignments/as5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/assignments/as6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/assignments/as7.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/arith.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/bondini.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/chartype.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/divide.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/exceed.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/floatnum.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/hexoct.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/limits.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/modulus.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/morechar.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter03/examples/typecast.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/7.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/8.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/assignments/9.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/addpntrs.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/arraynew.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/choices.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/delete.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/mixtypes.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/newstruct.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/ptrstr.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter04/examples/use_new.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/10.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/7.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/8.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/assignments/9.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/compstr1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/equal.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/forstr2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/nested.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/textin1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/textin2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/textin3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter05/examples/waiting.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/7.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/8.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/assignments/9.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/cctypes.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/cingolf.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/condit.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/jump.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/not.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/outfile.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/scores.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/sumafile.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter06/examples/switch.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/10.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/7.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/8a.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/8b.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Assignments/9.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/arfupt.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/arrfun.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/arrfun2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/arrfun3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/arrfun4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/arrobj.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/atrctfun.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/fun_ptr.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/recur.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/ruler.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/strgback.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/strgfun.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/topfive.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/travel.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter07/Examples/twodarray.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Assignments/1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Assignments/2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Assignments/3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Assignments/4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Assignments/5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Assignments/6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/L6Q6.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/choices.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/cube.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/firstref.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/funtemp.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/inline.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/left.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/leftover.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/sceref.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/strquote.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/strtref.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/swaps.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/temptempover.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/thirdref.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/twoswap.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter08/Examples/twotemps.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/1.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/1d.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/1main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/2def.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/2main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/3.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/3def.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/3main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/6.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/6def.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Assignments/6main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c1stock00.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c1stock00.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c1usestock1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c2stock10.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c2stock10.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c2usestock2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c3stock20.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c3stock20.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/c3usestock3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/stack.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/stack.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter10/Examples/stacker.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/1/random_walk.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/1/randwalk.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/1/vector.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/1/vector.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/2/randwalk.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/2/vector.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/2/vector.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/3/randwalk.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/3/vector.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/3/vector.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/4/mytime3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/4/mytime3.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/4/usetime3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/7/complex0.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/7/complex0.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Assignments/7/usecomplex.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/stone/stone.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/stone/stonewt.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/stone/stonewt.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/stone1/stone1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/stone1/stonewt1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/stone1/stonewt1.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time0/mytime0.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time0/mytime0.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time0/usetime0.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time1/mytime1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time1/mytime1.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time1/usetime1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time2/mytime2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time2/mytime2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time2/usetime2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time3/mytime3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time3/mytime3.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/time3/usetime3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/vector/randwalk.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/vector/vector.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter11/Examples/vector/vector.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Assignments/1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Assignments/2/pe12_2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Assignments/2/string2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Assignments/2/string2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Assignments/4.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/Queue/bank.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/Queue/queue.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/Queue/queue.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/placenew1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/placenew2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string1/sayings1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string1/sayings2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string1/string1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string1/string1.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string_bad/concepts.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string_bad/strngbad.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string_bad/strngbad.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter12/Examples/string_bad/vegnews.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Assignments/classic/classic.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Assignments/classic/classic.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Assignments/classic/useclassic.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/acctabc/acctabc.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/acctabc/acctabc.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/acctabc/usebrass3.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/brass/brass.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/brass/brass.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/brass/usebrass1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/brass/usebrass2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/dma/dma.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/dma/dma.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/dma/usedma.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/tabtenn/tabletenn0.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/tabtenn/tabtenn0.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/tabtenn/tabtenn1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/tabtenn/tabtenn1.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/tabtenn/usett0.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chapter13/Examples/tabtenn/usett1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dictionary/dictionary.md" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/dictionary.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -244,31 +17,19 @@
         <entry file="file://$PROJECT_DIR$/dictionary/dictionary.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="293">
-                <caret line="48" column="3" selection-start-line="48" selection-start-column="3" selection-end-line="48" selection-end-column="3" />
+              <first_editor relative-caret-position="185">
+                <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="144">
-                <caret line="8" column="115" selection-start-line="8" selection-start-column="115" selection-end-line="8" selection-end-column="115" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dictionary_basic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dictionary/dictionary_basic.py">
+      <file leaf-file-name="dictionary_exercise1.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dictionary/dictionary_exercise1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+            <state relative-caret-position="396">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -301,9 +62,11 @@
         <option value="$PROJECT_DIR$/condition/condition_exercise1.py" />
         <option value="$PROJECT_DIR$/condition/condition_operation.py" />
         <option value="$PROJECT_DIR$/condition/condition_exercise2.py" />
-        <option value="$PROJECT_DIR$/dictionary/dictionary.md" />
         <option value="$PROJECT_DIR$/dictionary/dictionary_basic.py" />
         <option value="$PROJECT_DIR$/../README.md" />
+        <option value="$PROJECT_DIR$/dictionary/dictionary_manipulation.py" />
+        <option value="$PROJECT_DIR$/dictionary/dictionary.md" />
+        <option value="$PROJECT_DIR$/dictionary/dictionary_exercise1.py" />
       </list>
     </option>
   </component>
@@ -327,6 +90,11 @@
               <item name="Python" type="b2602c69:ProjectViewProjectNode" />
               <item name="Python" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Python" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Python" type="462c0819:PsiDirectoryNode" />
+              <item name="dictionary" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -349,25 +117,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dictionary_basic">
-    <configuration name="condition_exercise1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python codes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/condition" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/condition/condition_exercise1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.dictionary_exercise1">
     <configuration name="condition_exercise2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -422,7 +172,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="if_statement" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="dictionary_exercise1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -430,30 +180,48 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/condition" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dictionary" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/condition/if_statement.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dictionary/dictionary_exercise1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="dictionary_manipulation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Python codes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dictionary" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dictionary/dictionary_manipulation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.if_statement" />
-      <item itemvalue="Python.condition_exercise1" />
       <item itemvalue="Python.condition_operation" />
       <item itemvalue="Python.condition_exercise2" />
       <item itemvalue="Python.dictionary_basic" />
+      <item itemvalue="Python.dictionary_manipulation" />
+      <item itemvalue="Python.dictionary_exercise1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.dictionary_exercise1" />
+        <item itemvalue="Python.dictionary_manipulation" />
         <item itemvalue="Python.dictionary_basic" />
         <item itemvalue="Python.condition_exercise2" />
         <item itemvalue="Python.condition_operation" />
-        <item itemvalue="Python.condition_exercise1" />
-        <item itemvalue="Python.if_statement" />
       </list>
     </recent_temporary>
   </component>
@@ -472,12 +240,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22526042" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29972374" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29972374" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32965517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -633,23 +400,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dictionary/dictionary.md">
+    <entry file="file://$PROJECT_DIR$/../README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="293">
-            <caret line="48" column="3" selection-start-line="48" selection-start-column="3" selection-end-line="48" selection-end-column="3" />
+          <first_editor relative-caret-position="324">
+            <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../README.md">
+    <entry file="file://$PROJECT_DIR$/dictionary/dictionary_manipulation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dictionary/dictionary.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="144">
-            <caret line="8" column="115" selection-start-line="8" selection-start-column="115" selection-end-line="8" selection-end-column="115" />
+          <first_editor relative-caret-position="185">
+            <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dictionary/dictionary_exercise1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
         </state>
       </provider>
     </entry>

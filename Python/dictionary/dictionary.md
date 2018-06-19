@@ -40,7 +40,6 @@ alien_0['x_position'] = 0
 alien_0['y_position'] = 25
 ```
 注意：在字典中，键值对的排列顺序与添加顺序没有关系，python仅关心键值对的对应关系。
-</br></br></br>
 
 ### 6.2.3 空字典
 当我们使用字典来存储用户提供的数据或自动生成大量键值对代码时，通常会先定义一个空字典，大括号为空即可：
@@ -48,5 +47,44 @@ alien_0['y_position'] = 25
 alien_0 = {}
 ```
 
-##Demos:
-1. [dictionary.basic.py](dictionary_basic.py)
+### 6.2.4 修改字典中的值
+想要修改字典中的值，像列表一样操作（直接赋值修改）即可。考虑如下代码：
+```python
+alien_0 = {'x-position': 0, 'y-position': 25, 'speed': 'medium'}
+print("Original x-position: " + str(alien_0['x-position']))
+if alien_0['speed'] == 'slow':
+    x_increment = 1
+elif alien_0['speed'] == 'medium':
+    x_increment = 2
+else:
+    x_increment = 3
+
+alien_0['x-position'] += x_increment
+print("New x-position: " + str(alien_0['x-position']))
+```
+x_increment的值将随对象的speed值而改变，如果要调整外星人的速度，只需要修改speed值：
+```python
+alien_0['speed'] = 'high'
+```
+这样每次x的增量就变成了3.
+
+### 6.2.5 删除键-对
+用del语句可以永久删除一个键对：
+```python
+del dict_name[dict_key]
+```
+
+### 6.2.6 分行字典
+当字典内元素数较多时，往往将其分行，要注意缩进，且大括号不可换行：
+```python
+favorite_languages = {
+    'jen': 'python',
+    'sarah': 'C',
+    'edward': 'ruby',
+    'phil': 'python',
+}
+```
+</br></br></br>
+## Demos:
+1. [dictionary_basic.py](dictionary_basic.py)
+2. [dictionary_manipulation.py](dictionary_manipulation.py)
