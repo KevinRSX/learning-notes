@@ -84,6 +84,92 @@ favorite_languages = {
     'phil': 'python',
 }
 ```
+
+## 6.3 遍历字典
+### 6.3.1 遍历所有键-值对
+要取得一个键-值对的内容，要使用`items()`方法
+```python
+for key, value in user_0.items():
+    print("\nKey: " + key)
+    print("Value: " + value)
+```
+该方法返回了两个值，储存到`key`和`value`里，使得循环变量可以直接得到一个键值对的值
+
+</br>
+
+### 6.3.2 遍历所有键
+与上一节同理，使用`keys()`方法即可，并且只需要储存一个循环变量：
+```python
+for name in favorite_languages.keys():
+    print(name.title())
+```
+在python中，遍历字典的默认方式是遍历键，因此`for name in favorite_languages.keys()`和`for name in favorite_languages`是等价的，
+但加上方法会使程序更易理解。
+
+</br>
+
+### 6.3.4 遍历字典中所有值
+同样，使用`values()`:
+```python
+print("The following languages have been mentioned:")
+for language in favorite_languages.values():
+    print(language.title())
+```
+`set()`函数可以帮助我们找出列表中独一无二的元素，省略掉相同者。
+```python
+for language in set(favorite_languages.values()):
+    print(language.title())
+```
+这样的话，多余的python就会在输出中被省略掉，有助于我们剔除重复项。
+
+</br>
+
+## 6.4 嵌套
+嵌套存储往往分为：
+1. 列表中嵌套字典
+2. 字典中嵌套列表
+3. 字典中嵌套字典
+
+</br>
+
+### 6.4.1 字典列表
+一个字典alien_0可以包含一个外星人的信息，如果想要同时管理一群外星人，那就要需要字典列表，即将字典作为列表中的元素
+```python
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = {'color': 'red', 'points': 15}
+aliens = [alien_0, alien_1, alien_2]
+```
+
+</br>
+
+### 6.4.2 在字典中存储列表
+如果我们想储存一个pizza字典，它有crust和toppings两个属性，其中配料不止一种，此时就应当用toppings作为列表存储多个配料
+```python
+pizza = {
+    'crust': 'thick',
+    'toppings': ['mushrooms', 'extra cheese']
+}
+```
+</br>
+
+### 6.4.3 在字典中存储字典
+这种情况的代码相当复杂， 比如在一个网站中，想要存储几位用户的信息，对于每位用户，都要储存其居住地，姓，名
+```python
+users = {
+    'aeinstein':{
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'princeton',
+    },
+    'mcurie':{
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris',
+    }
+}
+```
+为了处理大量数据方便，每位用户的字典最好应包含相同的键
 </br></br></br>
 ## Demos:
 1. [dictionary_basic.py](dictionary_basic.py)
