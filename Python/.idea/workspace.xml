@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40ab3f4c-c02a-441d-8fd7-38dacd0e183e" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/input/input.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dictionary/dictionary.md" beforeDir="false" afterPath="$PROJECT_DIR$/dictionary/dictionary.md" afterDir="false" />
     </list>
@@ -14,23 +15,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dictionary.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dictionary/dictionary.md">
+      <file leaf-file-name="input.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/input/input.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="348">
-                <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
+              <first_editor relative-caret-position="306">
+                <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dictionary_exercise3.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dictionary/dictionary_exercise3.py">
+      <file leaf-file-name="input_exercise.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/input/input_exercise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+            <state relative-caret-position="252">
+              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/input/input.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -70,8 +80,11 @@
         <option value="$PROJECT_DIR$/dictionary/dictionary_transverse.py" />
         <option value="$PROJECT_DIR$/dictionary/dictionary_exercise2.py" />
         <option value="$PROJECT_DIR$/dictionary/dictionary_nesting.py" />
-        <option value="$PROJECT_DIR$/dictionary/dictionary.md" />
         <option value="$PROJECT_DIR$/dictionary/dictionary_exercise3.py" />
+        <option value="$PROJECT_DIR$/dictionary/dictionary.md" />
+        <option value="$PROJECT_DIR$/input/input.py" />
+        <option value="$PROJECT_DIR$/input/input.md" />
+        <option value="$PROJECT_DIR$/input/input_exercise.py" />
       </list>
     </option>
   </component>
@@ -87,6 +100,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -97,13 +111,12 @@
             <path>
               <item name="Python" type="b2602c69:ProjectViewProjectNode" />
               <item name="Python" type="462c0819:PsiDirectoryNode" />
-              <item name="dictionary" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -122,25 +135,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dictionary_exercise3">
-    <configuration name="dictionary_exercise1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Python codes" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dictionary" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dictionary/dictionary_exercise1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.input_exercise">
     <configuration name="dictionary_exercise2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -195,7 +190,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="dictionary_transverse" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="input" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -203,30 +198,48 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dictionary" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/input" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dictionary/dictionary_transverse.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/input/input.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="input_exercise" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Python codes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/input" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/input/input_exercise.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.dictionary_exercise1" />
-      <item itemvalue="Python.dictionary_transverse" />
       <item itemvalue="Python.dictionary_exercise2" />
       <item itemvalue="Python.dictionary_nesting" />
       <item itemvalue="Python.dictionary_exercise3" />
+      <item itemvalue="Python.input" />
+      <item itemvalue="Python.input_exercise" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.input_exercise" />
+        <item itemvalue="Python.input" />
         <item itemvalue="Python.dictionary_exercise3" />
         <item itemvalue="Python.dictionary_nesting" />
         <item itemvalue="Python.dictionary_exercise2" />
-        <item itemvalue="Python.dictionary_transverse" />
-        <item itemvalue="Python.dictionary_exercise1" />
       </list>
     </recent_temporary>
   </component>
@@ -269,6 +282,23 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/dictionary/dictionary.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="3078">
+            <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dictionary/dictionary_exercise3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dictionary/dictionary.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -467,20 +497,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dictionary/dictionary_exercise3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dictionary/dictionary.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="348">
-            <caret line="171" column="27" selection-start-line="171" selection-start-column="27" selection-end-line="171" selection-end-column="27" />
+          <first_editor relative-caret-position="636">
+            <caret line="180" column="49" selection-start-line="180" selection-start-column="49" selection-end-line="180" selection-end-column="49" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dictionary/dictionary_exercise3.py">
+    <entry file="file://$PROJECT_DIR$/input/input.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+        <state relative-caret-position="144">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/input.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="306">
+            <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input/input_exercise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>

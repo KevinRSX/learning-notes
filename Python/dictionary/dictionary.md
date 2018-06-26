@@ -174,3 +174,8 @@ users = {
 ## Demos:
 1. [dictionary_basic.py](dictionary_basic.py)
 2. [dictionary_manipulation.py](dictionary_manipulation.py)
+3. [dictionary_transverse.py](dictionary_transverse.py)
+4. [dictionary_nesting.py](dictionary_nesting.py)
+5. [dictionary_exercise1.py](dictionary_exercise1.py)
+6. [dictionary_exercise1.py](dictionary_exercise2.py)
+7. [dictionary_exercise1.py](dictionary_exercise3.py)
