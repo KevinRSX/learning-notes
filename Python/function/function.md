@@ -115,3 +115,19 @@ def build_person(first_name, last_name, age = ''):
     return person
 ```
 对`build_person()`函数增加代表年龄的默认参数，可以随时添加年龄信息到一个人里。
+
+### 8.3.4 结合使用函数和while循环
+在while循环中调用函数，用其处理用户输入的顺序，会使代码更加整洁。要注意设置退出循环的条件。
+<br/>
+
+## 8.4 传递列表
+将列表传递给函数，处理数据的效率会提升很多。函数处理列表的方式和处理简单数据一样，亦是将列表储存在形参中，通过处理形参的方式来处理列表。
+
+```python
+def greet(names):
+    """greet every person in the list"""
+    for name in names:
+        msg = "Hello, " + name.title() + "!"
+        print(msg)
+```
+这是一个很简单的例子。把列表
