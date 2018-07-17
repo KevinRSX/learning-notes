@@ -133,3 +133,45 @@ def greet(names):
 这是一个很简单的例子。把列表存储在实参里，用通常的方法处理。
 
 ### 8.4.1 在函数中修改列表
+在传递列表时，参数保存的是列表本体，因此在函数中对列表所做的修改是永久性的。
+```python
+unprinted_designs = ['design_a', 'design_b', 'design_c']
+completed_models = []
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
+```
+思考这段代码，`print_models()`函数接受两个列表作为参数，将未打印的模型pop出来，一一转移到打印完的模型里，`show_completed_models()`函数用于展示以完成的模型。这是一个修改列表的例子。
+
+### 8.4.2 禁止函数修改列表
+如果不希望函数修改列表，可以用切片表示法`[:]`来创建列表的副本，在调用时可以这样写。
+```python
+function_name(list_name[:])
+```
+在这种情况下，函数接收到的是副本，在函数内所做的一切修改将不会影响到外部。但传递信息量大的列表时，会使得效率较低。
+
+
+## 8.5 传递任意数量的实参
+当定义函数时不知道函数将要处理几个实参的时候，python会允许函数从调用语句中收集任意数量的实参
+```python
+def make_pizza(*toppings):
+    print(toppings)
+```
+上述`*toppings`形参的作用是创建一个名为toppings的空元组，将收到的所有值都封装到这个元组中。我们可以用以下方式来调用它：
+```python
+make_pizza('pepperoni')
+make_pizza('mushrooms', 'green peppers', 'extra cheese')
+```
+这个元组可以储存一个参数，也可以储存多个参数。
+
+### 8.5.1 结合使用位置实参和任意数量实参
+若要将任意数量参数和普通参数结合使用，那么必须在函数定义中将接纳任意数量实参的形参放在最后。Python将先匹配位置实参和关键字实参，再将余下的实参都收集到最后一个形参中。
+
+### 8.5.2 使用任意数量的关键字形参
+当我们需要接收任意数量的实参，但预先不知道传递给函数的是什么信息时，可以将函数编写成能够接收任意数量的键-值对 -- 调用语句提供了多少就接收多少的形式。函数头可以这样写：
+```python
+def build_profile(first, last, **user_info):
+```
+`**user_info`的两个星号表示形参是一个空的字典，调用时，在最后可以添加任何不同的信息。
+```python
+user_profile = build_profile('albert', 'einstein', location = 'princeton', field = 'physics')
+```
