@@ -23,8 +23,8 @@ def show_completed_models(completed_models):
 
 unprinted_designs = ['iphone case', 'robot pendant', 'dodecahedron']
 completed_models = []
-# print_models(unprinted_designs, completed_models)
-# show_completed_models(completed_models)
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
 
 def make_pizza(size, *toppings):
     """print all the sauces the customer ordered"""
@@ -33,8 +33,8 @@ def make_pizza(size, *toppings):
         print("- " + topping)
 
 
-# make_pizza(16, 'pepperoni')
-# make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 
 
 def build_profile(first, last, **user_info):

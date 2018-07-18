@@ -1,6 +1,4 @@
-第八章 函数
-
-本章将只会简略地记录函数定义的内容，省略和其他编程语言相似的部分，侧重于python特性
+# 第八章 函数
 
 ## 8.1 定义函数
 
@@ -175,3 +173,57 @@ def build_profile(first, last, **user_info):
 ```python
 user_profile = build_profile('albert', 'einstein', location = 'princeton', field = 'physics')
 ```
+
+## 8.6 模块
+函数的一大优点是，可以通过使用它们将代码块和主程序分离。将函数储存在被称为`module`的独立文件之中，再让模块导入主程序中，可以达到代码重用的目的。
+
+好处：
+1. 隐藏程序代码细节，侧重于高层逻辑
+2. 在不同程序中重用函数
+3. 我们可以使用其他程序员编写的程序
+
+<br/>
+### 8.6.1 导入整个模块
+要导入整个模块，我们应当先创建一个包含函数定义的模块的文件。模块的拓展名是`.py`。再创建一个使用模块的文件。假如模块名为`pizza.py`，那么就应当在使用该函数的文件`making_pizza.py`的第一行加上代码
+```python
+import pizza
+```
+`import`的语句和C中`include`用法相似，python解释器会直接在目录中找到相应文件，然后把代码统统复制粘贴到使用程序中。
+
+要调用模块中的函数，应当用下面的语法
+```python
+module_name.function_name()
+```
+
+<br/>
+### 8.6.2 导入特定函数
+想要导入特定函数时，语法如下：
+```python
+from module_name import function_name
+```
+
+此时调用函数无需句点，因为函数已经被显式导入，指定名称即可。
+
+<br/>
+### 8.6.3 指定别名
+若担心名称冲突，可以用`as`语句指定别名。要给函数指定别名，语法如下：
+```python
+from module_name import function_name as fn
+```
+
+给模块指定别名语法如下：
+```python
+import module_name as mn
+```
+
+<br/>
+### 8.6.4 导入模块所有函数
+```python
+from module_name import *
+```
+这个做法可以使我们导入模块中所有函数，且不必使用句点表示法。但这不是一个好的做法，相当容易导致变量名冲突。
+
+<br/>
+### 8.7 函数编写指南
+1. 紧跟函数定义后写函数文档注释。
+2. 默认参数和关键字实参等号两边不加空格
