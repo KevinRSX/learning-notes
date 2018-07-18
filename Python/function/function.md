@@ -183,6 +183,7 @@ user_profile = build_profile('albert', 'einstein', location = 'princeton', field
 3. 我们可以使用其他程序员编写的程序
 
 <br/>
+
 ### 8.6.1 导入整个模块
 要导入整个模块，我们应当先创建一个包含函数定义的模块的文件。模块的拓展名是`.py`。再创建一个使用模块的文件。假如模块名为`pizza.py`，那么就应当在使用该函数的文件`making_pizza.py`的第一行加上代码
 ```python
@@ -196,6 +197,7 @@ module_name.function_name()
 ```
 
 <br/>
+
 ### 8.6.2 导入特定函数
 想要导入特定函数时，语法如下：
 ```python
@@ -205,6 +207,7 @@ from module_name import function_name
 此时调用函数无需句点，因为函数已经被显式导入，指定名称即可。
 
 <br/>
+
 ### 8.6.3 指定别名
 若担心名称冲突，可以用`as`语句指定别名。要给函数指定别名，语法如下：
 ```python
@@ -217,6 +220,7 @@ import module_name as mn
 ```
 
 <br/>
+
 ### 8.6.4 导入模块所有函数
 ```python
 from module_name import *
@@ -224,6 +228,7 @@ from module_name import *
 这个做法可以使我们导入模块中所有函数，且不必使用句点表示法。但这不是一个好的做法，相当容易导致变量名冲突。
 
 <br/>
+
 ### 8.7 函数编写指南
 1. 紧跟函数定义后写函数文档注释。
 2. 默认参数和关键字实参等号两边不加空格。
