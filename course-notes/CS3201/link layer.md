@@ -328,4 +328,4 @@ ARP table: each node (host, router) on LAN has a table. IP/MAC address mappings 
 
 In the same LAN, if A wants to send datagram to B but B's MAC address is not in A's ARP table, A will broadcast an ARP query packet containing B's IP address. In this case, destination MAC address = `FF-FF-FF-FF-FF-FF` and all nodes on LAN receive the ARP query.
 
-Upon receiving ARP packet, B replies (unicast) to A with its MAC address. A saves IP-to-MAC address pair in its ARP table until information becomes old (time out).
+Upon receiving ARP packet, B replies (unicast) to A with its MAC address. A saves IP-to-MAC address pair in its ARP table until information becomes old (time out). 
