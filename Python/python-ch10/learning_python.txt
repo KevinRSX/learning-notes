@@ -1,0 +1,3 @@
+In Python you can create a list
+In Python you can give constructors parameters of objects
+In Python you can crawl for data on the Internet
