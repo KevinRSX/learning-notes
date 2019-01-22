@@ -124,6 +124,8 @@ This is a N:M relationship between EMPLOYEE and PROJECT because many employees w
 
 ![min-max-notation](images/min-max-notation.png)
 
+One thing we should notice is that for the (min-max) notation, the range is on the side of the object toward the relationship. On the other hand, if we simply put down constraints (1 or N), the side is put in differently. N-1 means that the entity on the left hand side of the relation corresponds to N, which is consistent with the rule of UML diagrams.
+
 
 
 ## 1.6 Recursive Relationship Type
@@ -147,4 +149,3 @@ This is a N:M relationship between EMPLOYEE and PROJECT because many employees w
 Notations
 
 ![er-notation](images/er-notation.png)
-

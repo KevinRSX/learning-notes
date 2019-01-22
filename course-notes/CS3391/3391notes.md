@@ -144,5 +144,5 @@ We assume $i=p\cdot r$, when we execute the break, $i\text{ mod }p=0$. At this p
 
 For example, $16=8\times 2=4\times 2\times 4$. If we want to further factorize $8\times 3=24$, we know that $24=4\times 3\times 2=4\times 2\times 3$, that is it has a larger factor 12. Therefore, we need to get out of the loop at this point.
 
-See [wk1_getprime.cpp](wk1_getprime.cpp) for further details.
+See [wk1_get_prime.cpp](wk1_get_prime.cpp) for further details.
 
