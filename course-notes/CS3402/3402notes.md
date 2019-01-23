@@ -149,3 +149,164 @@ One thing we should notice is that for the (min-max) notation, the range is on t
 Notations
 
 ![er-notation](images/er-notation.png)
+
+
+
+
+
+# 2. Lecture 2: Relational Model
+
+## 2.1 Introduction
+
+- Many database implementations are always based no another approach called the relational model
+- A relation looks like a table (row * columns) of values
+- A relation contains a set of rows (tuples) and each column (attribute) has a column header that gives an indication of the meaning of the data items in that column
+  - Associated with each attribute of a relation is a set of values (domain)
+  - Students (SSN: string, Name: string, GPA: double)
+- The data elements in each row (tuple) represent certain facts that correspond to a real-world entity or relationship
+
+![relation-example](images/relation-example.png)
+
+- The **primary key** uniquely identifies a record in the table and we can have only one primary key in a table, while the **foreign key** is a field in the table that is primary key in another table and we can have more than one forein key in the table.
+
+
+
+## 2.2 Basic Structure
+
+- Records
+  - Each row/tuple in a relation is a record/tuple (an entity)
+  - Each attribute in a relation corresponds to a particular field of a record
+
+In relational model, we will adapt to some terminologies.
+
+| Informal Terms                   | Formal Terms          |
+| -------------------------------- | --------------------- |
+| Table                            | Relation              |
+| Column header                    | Attribute             |
+| All possible values for a column | Domain                |
+| Row                              | Tuple                 |
+| Table definition                 | Schema of a relation  |
+| Populated table                  | State of the relation |
+
+ 
+
+## 2.3 Relation State
+
+- Each populated relation has many records or tuples in its current relation state
+- Whenever the database is changed, a new state arises
+- Basic operations for changing the database:
+  - Insert -- add a new tuple in a relation
+  - Delete -- remove an existing tuple from a relation
+  - Update -- modify an attribute of an existing tuple
+
+
+
+## 2.4 Characteristics of Relations
+
+- The tuples are not considered to be ordered, even though they appear to be in a tabular form (may have different presentation orders)
+- Therefore, the relation state remains the same even if order of tuples is different
+- Values in a tuple
+  - All values are considered atomic (indivisible): therefore surname and first name should be seperated as two attributes
+  - Basic unit for manipulation
+- Each value in a tuple must be from the domain (set of values) of the attribute for that column
+- A special null value is used to represent values that are unknown or not available or inapplicable in certain tuples
+
+
+
+## 2.5 From ER Diagrams to Relations
+
+1. Step 1: Mapping of strong entity types
+
+   - For each regular entity type E, create a relation R that includees all the simple attributes of E, and choose one of the key attributes E as the primary key for R.
+   - R is called an entity relation. Each tuple in R represents an entity instance.
+   - For example, entity E with k simple attributes $a_1, a_2, ..., a_k$, where $a_1$ is a key attribute, and entity set $\left\{ e_1, e_2, ..., e_k \right\}$.
+
+   ![er-to-relational-strong-entity](images/er-to-relational-strong-entity.png)
+
+
+
+2. Step 2: Mapping of Weak Entity Types
+
+   - For each weak entity type, 
+     - create a relation R and includes all the simple attributes of the entity type as the attributes of R (same as in step 1)
+     - include the **primary key attribute** of the owner as the foreign key attributes of R
+     - the primary key of R is the combination of the **primary key of the owner** and the **partial key of the weak entity type**.
+
+   
+
+3. Step 3: Mapping of Binary 1:1 Relationship Types
+
+   - For each binary 1:1 relationship type, identify relations that correspond to the entity types participating in R.
+   - We have three possible approaches
+     - Foreign key approach
+     - Merged relationship approach
+     - Cross reference or relationship relation approach
+   - a) Foreign key approach (with relations between S and T)
+     - Choose one of the relations S and include the primary key of T as the foreign key in S
+     - Include all the simple attributes of the relationship as the attributes of S
+   - b) Merged relationship approach
+     - Merge the two entity types and the relationship into a single relation
+   - Cross reference or relationship relation approach (with relations S and T)
+     - Set up a third relation R for the purpose of cross-referencing the primary keys of the two relations S and T representing the entiy types
+     - Relation R will include the primary key attributes of S and T as foreign keys to S and T respectively
+     - The primary key of R will be one of the two foreign keys
+     - Add the simple attributes of the original relationship to R
+   - Note that all approaches include the following: **let the primary key of one or both of the entity be a foreign key**, and **add the simple attributes of R to whatever produced**
+
+   
+
+4. Step 4: Mapping of Binary 1:N relationship types
+
+   - Identify relation S that represents participating entity type at **N-side** of relationship type
+   - Include the primary key of relation T as the foreign key in S
+   - Include the simple attributes of the 1:N relationship type as the attributes of S
+
+   Alternative approach:
+
+   - Use the relationship relation (cross-reference) option as in the third approach for binary 1:1 relationship, but the primary key of R will be two foreign key of **both** involving entities.
+
+   
+
+5. Step 5: Mapping of Binary M:N relationship types
+
+   - Create a new relation R
+   - Include as the primary key of the participating entity types as the foriegn key attributes in R
+   - The combination of all the foreign key attributes form the primary keys of R
+   - Include all the simple attributes of M:N relationship type
+
+   (Same as the alternative approach in step 4)
+
+   
+
+6. Step 6: Mapping of Multivalued Attributes
+
+   - For each multivalued attribute A
+
+     - Create a new relation R
+     - Primary key of R is the combination of A and the primary key attribute of the relation that represents the entity type or relationship that has A as a multivalued attribute.
+     - If the multivalued attribute is composite, include its simple components
+
+     
+
+7. Step 7: Mapping of N-ary Relationship Types
+
+   - For each n-ary relationship R
+     - Create a new relaiton S to represent R
+     - Include primary keys of participating entiy types as foreign keys
+     - Include all the simple attributes of R as the attributes of S
+     - The primary key of S is a **combination of all the foreign keys** that reference the relations representing the participating entity types
+
+- Summary
+
+| ER Model                     | Relational Model                           |
+| ---------------------------- | ------------------------------------------ |
+| Entity type                  | Entity Relation                            |
+| 1:1 or 1:N relationship type | Foreign key (or relaitonship relation)     |
+| M:N relationship type        | Relationship relation and two foreign keys |
+| N-ary relationship type      | Relationship relation and n foreign keys   |
+| Simple attribute             | Attribute                                  |
+| Composite attribute          | Set of simple component attributes         |
+| Multivalued attribute        | Relation and foreign key                   |
+| Value set                    | Domain                                     |
+| Key attribute                | Primary key                                |
+
