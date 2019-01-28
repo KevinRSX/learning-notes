@@ -129,6 +129,13 @@ With uniprogramming, there is gross underutilisation of all resources. The impro
 
 
 
+### 1.4.1 Difference Between Terminologies
+
+- A multiprogramming system runs more than one program "simultaneously" on one processor. The system attempts to keep several **programs** resident in main memory and **switches the processor rapidly between them**. Multiprogramming was developed to improve processor I/O and resource utilization.
+- A multiprocessor is a computer system with **more than one processor**. Multiprocessing was developed in an effort to increase processing speeds by allowing truly parallel computation.
+
+
+
 ## 1.5 The Memory Hierarchy
 
 The memory hierarchy is designed to meet the constraints on a computer's memory. That is, how much?, how fast?, ane how expensive?
@@ -137,7 +144,7 @@ Going from top to down along the hierarchy, we shall observe
 
 - Decreasing cost per bit
 - Increasing capcity
-- Increasing access time
+- Increasing access time 
 - Decreasing frequency of access to the memory by the processor
 
 ![memory-hierarhy](images/memory-hierarhy.png)
@@ -167,7 +174,7 @@ Data which is required soon is often close to the current data. If data is acces
 
 
 
-### 1.5.3 Secondary Memory
+### 1.5.2 Secondary Memory
 
 Secondary Memories are also known as storage devices
 
@@ -176,3 +183,193 @@ Secondary Memories are also known as storage devices
 - Most commonly used: magnetic disks
   - Disk surface is logically divided into tracks, which are subdivided into sectors
   - The disk controller determines the logical interaction between the device and the computer
+
+
+
+## 1.6 I/O Communication Techniques
+
+When the processor encounters an instruction related to I/O, it executes that instruction by using a command to the appropriate I/O module. There are three techniques possible for I/O operations:
+
+- Programmed I/O
+- Interrupt-driven I/O
+- Direct memory access (DMA)
+
+### 1.6.1 Programmed I/O
+
+- CPU issues a read command to I/O module to read a word of data from an external device into memory.
+- I/O module performs the requested action
+  - then sets the appropriate bits in the I/O status register (but takes no further action to alert CPU)
+- CPU periodically checks the status of I/O module until it determines the instruction is completed.
+- The performance is poor.
+
+<img src="images/programmed-IO.png" style="zoom:50%" />
+
+
+
+### 1.6.2 Interrupt-Driven I/O
+
+- CPU issues a read command to I/O module and then goes on to do some other useful work
+- I/O module will then interrupt CPU to request service when it is ready to exchange data with CPU.
+- CPU executes the data transfer and then resumes its former processing
+- More efficient than programmed I/O because there is no needless waiting. However, interrupt-driven I/O requires active intervention of CPU to perform data transfer
+
+<img src="images/interrupt-driven-IO.png" style="zoom:50%" />
+
+
+
+### 1.6.3 Direct Memory Access
+
+- Performed by a seperate module.
+- When CPU wishes to read/write, it issues a command to DMA module containing
+  - Whether a read or write is requested
+  - The address of the I/O device involved
+  - The starting location in memory to read/write
+  - The number of words to be read/written
+- DMA module transfers the entire block of data directly to and from memory without going through CPU.
+- More efficient than interrupt-driven I/O
+
+<img src="images/direct-memory-access.png" style="zoom:50%" />
+
+
+
+## 1.7 Operating System Objectives & Functions
+
+OS is a program that controls the execution of application programs. It acts as an interface between applications and hardware.
+
+Main objectives:
+
+- *Convenience*: making a computer more convenient to use
+- *Efficiency*: allowing computer resources to be used efficiently
+- *Ability to involve*: permitting effective development, testing and introduction of new system functions such as hardware upgrade, new hardware, new services, and fixes.
+
+
+
+### 1.7.1 OS as a User/Computer Interface
+
+- End user views a computer system in terms of a set of applications and is not concerned with the details of computer hardware.
+
+- Programme makes use of a set of system programs (utilities) in developing an application and a running application invokes the utilities to perform certain functions
+- The most important collection of system programs comprises the OS.
+
+
+
+### 1.7.2 OS Services
+
+- Program development
+
+  OS provides a variety of facilities and services, such as editors and debuggers, to assist the programmer in creating programs.
+
+- Program execution
+
+  OS handles steps need to be performed to execute a program.
+
+- Access I/O devices
+
+  OS provides a uniform interface so that programmers can access I/O devices using simple reads and writes.
+
+- Controlled access to files
+
+  In the case of a system with multiple users, OS provides protection mechanisms to control access to the files
+
+- System access
+
+  For shared or public systems, OS controls access to the system as a whole and to specific system resources in order to provide protection of resources and data from unauthorized users and resolve conflicts for resource contention.
+
+- Error detection and response
+
+  A variety of errors can occur while a computer system is running. OS must provide a response that clears the error condition with the least impact on running applications.
+
+- Accounting
+
+  A good OS will collect usage statistics for various resources and monitor performance parameters such as response time.
+
+
+
+
+
+### 1.7.3 OS as Resource Manager
+
+<img src="images/os-resource-management.png" style="zoom:50%" />
+
+- A computer is a set of resources for the movement, storage, and processing of data
+- The OS is responsible for managing these resources
+  - determines how much processor time is to be devoted to the execution of a particular user program
+  - controls the allocation of main memory
+  - decides when an I/O device can be used by a program in execution
+  - controls access to and use of files
+
+
+
+# 2 Lecture 2 -- Process Desctiption and Control
+
+## 2.1 How are processes represented and controlled by the OS?
+
+### 2.1.1 The Concept of Process
+
+All modern OS rely on a model in which the execution of an application corresponds to the existence of one or more processes.
+
+Process:
+
+- A program in execution
+- An instance of a program running on a computer
+- The entity that can be assigned to and executed on a processor
+- A unit of activity characterised by the execution of a sequence of instructions, a current state, and an associated set of system resources
+
+A process is comprised of:
+
+- Program code
+- Associated data needed by the program
+- Execution context of the program. containing all information the OS needs to manage the process
+
+
+
+### 2.1.2 Requirements of an OS
+
+- Fundamental task: **process management**
+- The operating system must:
+  - Interleave the execution of multiple processes
+  - Allocate resources to processes and protect the resources of each process from other processes
+  - Enable processes to share and exchange information
+  - Enable synchronisation among processes
+
+
+
+Example: Interleaved Execution of Processes
+
+Omitted. See lecture notes and the textbook.
+
+
+
+## 2.2 Process States
+
+### 2.2.1 Two-State Process Model
+
+- OS creates a new process and enters it into the system
+- Process may be in one of two states
+  - Running
+  - Not running
+
+
+
+<img src="images/two-state-process-model.png" style="zoom:50%" />
+
+- Processes that are not running are kept in some sort of queue, waiting for their turn to execute. Processes moved by the dispatcher of the OS to the CPU then back to the queue until the task is completed.
+
+
+
+### 2.2.2 Five-State Process Model
+
+While some processes in the Not Running state are ready to execute, others may be blocked (e.g., waiting for an I/O operation to complete)
+
+<img src="images/five-state-process-model.png" style="zoom:50%" />
+
+- Running: The process that is currently being executed.
+- Ready: A process that is prepared to execute when given the opportunity
+- New: A process that has just been created but has not yet been admitted to the pool of executable processes by the OS. Typically, a new process has not yet been loaded into main memory, although its process control block has been created.
+
+- Blocked: A process that cannot execute until some event occurs, such as the completion of an I/O operation
+- Exit: A process that has been released from the pool of executable processes by the OS, either because it halted or because it aborted for some reason.
+
+
+
+We can either use two queues - one `READY_QUEUE` and another `BLOCKED QUEUE`, or use multiple blocked queues, which seperates the events of blocking.

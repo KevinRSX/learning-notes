@@ -310,3 +310,6 @@ In relational model, we will adapt to some terminologies.
 | Value set                    | Domain                                     |
 | Key attribute                | Primary key                                |
 
+- Example of a typical conversion
+
+  ![ERdiagram-to-relational-model](images/ERdiagram-to-relational-model.png)
