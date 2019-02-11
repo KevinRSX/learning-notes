@@ -1,4 +1,4 @@
-# 1. Lecture 1: Entity-Relationship (ER) Models
+1. Lecture 1: Entity-Relationship (ER) Models
 
 ## 1.1 Concepts of ER Model
 
@@ -313,3 +313,331 @@ In relational model, we will adapt to some terminologies.
 - Example of a typical conversion
 
   ![ERdiagram-to-relational-model](images/ERdiagram-to-relational-model.png)
+
+
+
+# 3. Lecture 3: Structural Query Language (SQL)
+
+Resource for this lecture: [Fundamentals of Database Systems, Chapter 4-5](https://www.amazon.com/Fundamentals-Database-Elmasri-Navathe-Shamkant/dp/933258270X/ref=sr_1_1?ie=UTF8&qid=1548904565&sr=8-1&keywords=fundamentals+of+database+systems.+7th+edition)
+
+Advantages of using SQL:
+
+- Easy conversion among different kinds of database systems
+- Provides a higher-level declarative language interface to which users only specifies what the result is to be. The actual optimization and decisions on how to execute the query is left to DBMS.
+
+
+
+SQL is a comprehensive database language with:
+
+- Statements for data definitions, queries, and updates
+- Facilities for defining views on the database, for specifying security and authorisation, for defining integrity constraints, and for specifying transaction controls
+- Rules for embedding SQL statements into a general-purpose programming language
+
+
+
+## 3.1 SQL Data Definition and Data Types
+
+### 3.1.1 Schema and Catalog Concepts
+
+An SQL schema is identified by:
+
+- A schema name
+- An authorization identifier: indicates the user or account who owns the schema
+- Descriptors for each element
+- Elements: tables, constraints, views, domains, and other constructs that describes the schema
+
+
+
+ A schema is created using `CREATE` statement. Name and authorization identifier must be included.
+
+```mysql
+CREATE SCHEMA COMPANY AUTHORIZATION 'Jsmith'
+```
+
+
+
+### 3.1.2 The CREATE TABLE Command
+
+The `CREATE TABLE` command is used to specify a new relation by giving it a name and specifying its attributes and initial constraints.
+
+The relations declared through this command are called base tables which means that the relation and its tuples are actually created and stored as a file by the DBMS.
+
+
+
+Example:
+
+```mysql
+CREATE TABLE EMPLOYEE
+( Fname VARCHAR(15)
+Minit CHAR,
+Lname VARCHAR(15) Ssn CHAR(9)
+Bdate DATE,
+Address VARCHAR(30), Sex CHAR,
+Salary DECIMAL(10,2), Super_ssn CHAR(9),
+Dno INT
+NOT NULL, NOT NULL,
+NOT NULL,
+NOT NULL,
+PRIMARY KEY (Ssn),
+FOREIGN KEY (Super_ssn) REFERENCES EMPLOYEE(Ssn), FOREIGN KEY (Dno) REFERENCES DEPARTMENT(Dnumber) );
+CREATE TABLE DEPARTMENT
+( Dname VARCHAR(15)
+Dnumber INT Mgr_ssn CHAR(9) Mgr_start_date DATE,
+NOT NULL, NOT NULL, NOT NULL,
+PRIMARY KEY (Dnumber),
+UNIQUE (Dname),
+FOREIGN KEY (Mgr_ssn) REFERENCES EMPLOYEE(Ssn) );
+CREATE TABLE DEPT_LOCATIONS
+( Dnumber INT NOT NULL,
+Dlocation VARCHAR(15) NOT NULL, PRIMARY KEY (Dnumber, Dlocation),
+FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT(Dnumber) );
+CREATE TABLE PROJECT
+( Pname VARCHAR(15)
+Pnumber INT
+Plocation VARCHAR(15), Dnum INT
+NOT NULL, NOT NULL,
+NOT NULL,
+PRIMARY KEY (Pnumber),
+UNIQUE (Pname),
+FOREIGN KEY (Dnum) REFERENCES DEPARTMENT(Dnumber) );
+CREATE TABLE WORKS_ON ( Essn
+Pno
+CHAR(9) NOT INT NOT DECIMAL(3,1) NOT
+NULL, NULL, NULL,
+NULL, NULL,
+Hours
+PRIMARY KEY (Essn, Pno),
+FOREIGN KEY (Essn) REFERENCES EMPLOYEE(Ssn), FOREIGN KEY (Pno) REFERENCES PROJECT(Pnumber) );
+CREATE TABLE DEPENDENT ( Essn
+Dependent_name Sex
+Bdate Relationship
+CHAR(9) NOT VARCHAR(15) NOT CHAR,
+DATE,
+VARCHAR(8), PRIMARY KEY (Essn, Dependent_name),
+FOREIGN KEY (Essn) REFERENCES EMPLOYEE(Ssn) );
+```
+
+
+
+## 3.2 Basic Retrieval Queries in SQL
+
+Important note: SQL allows a table (relation) to have two or more tuples that are identical in all their attribute values. Hence, in general, an SQL table is a **multiset of tuples** instead of a set of tuples.
+
+
+
+### 3.2.1 `SELECT-FROM-WHERE` Structure of Basic SQL Queries
+
+Basic format:
+
+```mysql
+SELECT <attribute list>
+FROM <table list>
+WHERE <condition>;
+```
+
+where
+
+- attribute list is a list of attribute names whose values are to be retrieved by the query.
+- table list is a list of relation names required to process the query.
+- condition is a conditional boolean expression that identifies the tuples to be retrieved by the query.
+
+
+
+*Query 0*: Retrieve the birth date and address of the employee(s) whose name is 'John B. Smith'.
+
+```mysql
+SELECT Bdate, Address
+FROM EMPLOYEE
+WHERE Fname = 'John' AND Minit = 'B' AND Lname = 'Smith'
+```
+
+The query selects the individual EMPLOYEE tuples that satisfy the condition of the WHERE clause, then *projects* the result on the Bdate and Address attributes listed in the SELECT clause.
+
+Therefore, attributes specified by the SELECT clause are called projection attributes and those specified by the `WHERE` clause are called selction condition.
+
+
+
+*Query 1*: Retrieve the name and address of all employees who work for the 'Research' department
+
+```mysql
+SELECT Fname, Lname, Address
+FROM EMPLOYEE, DEPARTMENT
+WHERE Dname = 'Research' AND Dnumber = Dno;
+```
+
+The condition `Dnumber = Dno` is a join condition because it combines two tuples. A query that involves only selection and join conditions plus projection attributes is known as a select-project-join query.
+
+
+
+*Query 2*: For every project located in "Stafford", list the project number, the controlling department number, and the department manager's last name, address, and birth date.
+
+```sql
+SELECT Pnumber, Dnum, Lname, Address, Bdate
+FROM PROJECT, DEPARTMENT, EMPLOYEE
+WHERE Dnum = Dnumber AND Mgr_ssn = Ssn AND Plocation = 'Stafford';
+```
+
+
+
+### 3.2.2 Ambiguous Attribute Names, Aliasing, Renaming, and Tuple Variables
+
+To prevent naming conflict, we must qualify the attribute name with the relation name when some attributes in different relations have the same name. The process is called prefixing.
+
+Q1A:
+
+```sql
+SELECT Fname, EMPLOYEE.Name, Address
+FROM EMPLOYEE, DEPARTMENT
+WHERE DEPARTMENT.Name = 'Research' AND DEPARTMENT.Dnumber = EMPLOYEE.Dnumber
+```
+
+We may define **alias** to save some typing.
+
+*Query 8*: For each employee, retrieve the employee's first and last name and first and last name of his or her immediate supervisor.
+
+```sql
+SELECT E.Fname, E.Lname, S.Fname, S.Lname
+FROM EMPLOYEE AS E, EMPLOYEE AS S
+WHERE E.Super_ssn = S.ssn;
+```
+
+Note that we must use prefixing here because the query refers to the same relation twice.
+
+It is also possible to rename the relation attributes within the query in SQL by giving them aliases. For example, if we write 
+
+```sql
+EMPLOYEE AS E(Fn, Mi, Ln, Ssn, Bd, Addr, Sex, Sal, Sssn, Dno)
+```
+
+in the FROM clause, every attribute will have its own alias.
+
+
+
+### 3.2.3 Unspecified WHERE Clause and Use of the Asterisk
+
+A missing WHERE clause indicates no condition on tuple selection -- all tuples of the relation specified in the FROM clause qualify and are selected for the query result.
+
+If more than one relation is specified in the FROM clause and there is no WHERE clause, then the CROSS PRODUCT - all possible tuple combinations - of these relations is selected.
+
+
+
+To retrieve all the attribute values of the selected tuples, we do not have to list the attribute names explicitly in SQL; we just specify an asterisk (*), which stands for all the attributes.
+
+Examples:
+
+```sql
+SELECT *
+FROM EMPLOYEE
+Dno = 5;
+```
+
+```sql
+SELECT *
+FROM EMPLOYEE, DEPARTMENT
+WHERE Dname = 'Research' AND Dno = Dnumber;
+```
+
+```sql
+SELECT *
+FROM EMPLOYEE, DEPARTMENT;
+```
+
+
+
+### 3.2.4 Tables as Sets in SQL
+
+Keyword DISTINCT is used in the SELECT clause to remove duplicate tuples from the result of an SQL query, whereas SELECT ALL does not, which is the default option.
+
+
+
+*Query 11*: Retrieve the salary of every employee (Q11) and all distinct salary values (Q11A)
+
+Q11
+
+```sql
+SELECT ALL Salary
+FROM EMPLOYEE;
+```
+
+Q11A
+
+```sql
+SELECT DISTINCT Salary
+FROM EMPLOYEE;
+```
+
+
+
+We can apply set operations UNION, EXCEPT, INTERSECT to the SELECT statements of SQL queries. Each statement should contain the same set of attributes.
+
+
+
+*Query 4*: Make a list of all project numbers for projects that involve an employee whose last name is 'Smith', either as a worker or as a manager of the department that controls the project.
+
+```sql
+(SELECT DISTINCT Pnumber
+ FROM EMPLOYEE, PROJECT, WORKS_ON
+ WHERE Pnumber = Pno AND Essn = Ssn AND Lname = 'Smith')
+ UNION
+(SELECT DISTINCT Pnumber
+ FROM EMPLOYEE, PROJECT, DEPARTMENT
+ WHERE Dnumber = Dno AND Mgr_ssn = Ssn AND Lname = 'Smith');
+```
+
+SQL has provides corresponding multiset operations: UNION ALL, EXCEPT ALL, INTERSECT ALL, whose results are multisets so that duplicates are not eliminated.
+
+
+
+### 3.2.5 Substring Pattern Matching and Arithmetic Operators
+
+LIKE comparison operator is used for pattern matching in SQL:
+
+- % replaces an arbitrary number of zero or more characters
+- underscore (_) replaces a single character
+
+*Query 12*: Retrieve all employees whose address is in Houston, Texas
+
+```sql
+SELECT Fname, Lname
+FROM EMPLOYEE
+WHERE Address LIKE '%HOUSTON,TX%';
+```
+
+*Query 12A*: Find all employees who were born during the 1950s
+
+```SQL
+SELECT Fname, Lname
+FROM EMPLOYEE
+WHERE Bdate LIKE '__5_______';
+```
+
+
+
+### 3.2.6 ORDER BY Clause
+
+- The ORDER BY clause is used to sort the records in your result set. The ORDER BY clause can only be used in SELECT statements.
+
+Example 1: List in alphabetic order all customers having a loan at Kowloon branch:
+
+```sql
+SELECT DISTINCT cname
+FROM Borrow
+WHERE bname = "Kowloon"
+ORDER BY cname;
+```
+
+Example 2: List the entire borrow table in descending order of amount, and if several loans have the same amount, order them in ascending order by loan#:
+
+```sql
+SELECT *
+FROM Borrow
+ORDER BY amount DESC, loan# ASC;
+```
+
+
+
+### 3.2.7 INSERT Statement
+
+The INSERT statement is used to insert a single record or multiple records into a table.
+
+- Insert a single record using the VALUES keyword

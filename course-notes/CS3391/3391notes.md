@@ -138,13 +138,13 @@ void getprime(int n)
 }
 ```
 
-Proof:
+$Proof$:
 
 We assume $i=p\cdot r$, when we execute the break, $i\text{ mod }p=0$. At this point, $x_1=p\cdot r\cdot p$ is filtered. However, when we consider another number $x_2 = p\cdot r\cdot q$, where $q>p$, note that $x_2 = q\cdot r\cdot p$. So the factor is bigger in this case.
 
-For example, $16=8\times 2=4\times 2\times 4$. If we want to further factorize $8\times 3=24$, we know that $24=4\times 3\times 2=4\times 2\times 3$, that is it has a larger factor 12. Therefore, we need to get out of the loop at this point.
+For example, $16=8\times 2=4\times 2\times 4$. If we want to further factorize $8\times 3=24$, we know that $24=4\times 3\times 2=4\times 2\times 3$, that is it has a larger factor 12. Therefore, we need to break here.
 
-See [wk1_get_prime.cpp](wk1_get_prime.cpp) for further details.
+See [wk1_get_prime.cpp](wk1_get_prime.cpp) for code details.
 
 
 
@@ -272,4 +272,6 @@ void Hanoi(int n, char source, char dest, char temp)
   Hanoi(n - 1, temp, dest, source);
 }
 ```
+
+
 
