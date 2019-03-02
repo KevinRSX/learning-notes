@@ -1360,3 +1360,127 @@ For example:
 - $R\cap S=(R\cup S)-(R-S)-(S-R)$
 - $R\Join_{\text{<join condition>}}S=\sigma_{<\text{join condition}>}(R\times S)$
 
+
+
+# 5 Lecture 5: Integrity Constraints
+
+## 5.1 Overview
+
+- Constraints determine which values are permissible and which are not in the database (table). They are conditions that must hold on all valid relation states.
+- A relational database schema S is a set of relation schemes $S=\left\{R_1,R_2,...,R_n \right\}$ and a set of integrity constraints IC.
+- Valid state VS invalid state
+  - Valid state: a state that satisfies all the constraints in the defined set of integrity constraints
+  - Invalid state: A database state that does not obey all the integrity constraints
+
+### 5.1.1 Three Main Types of Relational Integrity Constraints
+
+1. Inherent or implicit constraints: characteristics of relations, e.g., no duplicate tuples
+2. Schema-based or explicit constraints: Expressed in schemas by DDL
+3. Application-based or semantic constraints: These are beyond the expressive power of the model (i.e., cannot be expressed in the schemas of the data model) and must be specified and enforced by the application programs
+
+
+
+### 5.1.2 Schema-based Constraints
+
+- There are three main types of schema-based constraints that can be expressed in the relational model
+  1. Key constraints
+  2. Entity integrity constraints
+  3. Referential integrity constraints
+- Another schema-based constraints is the domain constraint
+  - Every value in a tuple must be from the domain of its attribute (or it could be null, if allowed for that value)
+
+
+
+## 5.2 Key Constraints
+
+### 5.2.1 Key and Functional Dependency
+
+A set of one or more attributes $A_1,A_2,...A_n$ is a key for a relation if:
+
+- The attributes functionally determine all other attributes of the relation
+- Relations are sets. It is impossible for two distinct tuples of R to agree on all $A_1,A_2,...A_n$.
+- No proper subset of $A_1,A_2,...,A_n$ functionally determines all other attributes of R, i.e., a key must be minimal
+
+
+
+A **functional dependency** (FD) on a relation R is a statement of the form: if two tuples of R agree on attributes $A_1,A_2,...,A_n$ (the tuples have the same values in their respective components for each of these attributes), then they must also agree on another attribute B, where $\left\{A_1,A_2,...,A_n \right\}\rightarrow B$
+
+Example: Consider a relation MOVIES(Title, Year, Length, Type, StudioName, StarName). Given, FD $\left\{\text{Title, Year, StarName} \right\}\rightarrow \left\{\text{Length, Type, StudioName} \right\}​$, we say
+
+- $\left\{\text{Title, Year, StarName} \right\}​$ form a key for the relation Movie
+- Suppose two tuples agree on these three attributes, they must also agree on the other attributes: Length, Type, and StudioName
+- No proper subset of $\left\{\text{Title, Year, StarName} \right\}$ functionally determines all other attributes as
+  - $\left\{\text{Title, Year} \right\}$  does not determine StarName since many movies have more than one star
+  - $\left\{\text{ Year, StarName} \right\}$ is not a key because we could have a star in two movies in the same year
+
+
+
+### 5.2.2 Meaning and Choice of Key
+
+#### 5.2.2.1 Superkey and Key
+
+- Superkey of R
+
+  - A set of attributes that **contains a key** is called a superkey
+
+  - It is a set of attributes superkey SK, e.g., ${A_1, A_2}$ of R with the following conditions:
+    - No two tuples in any valid relation state $r(R)$ will have the same value for SK
+    - For any distinct tuples $t_1$ and $t_2$ in $r(R)$, $t_1[SK]\ne t_2[SK]$ (i.e., different SK)
+
+
+
+- Key of R
+  - A "minimal" superkey
+  - A key is a superkey K such that removal of any attribute from K results in a set of attributes that is not a superkey (does not possess the superkey uniqueness property)
+
+
+
+Consider the CAR relation schema CAR(State, Reg#, SerialNo, Make, Model, Year), it has two keys:
+
+- $K_1=\left\{\text{State, Reg#} \right\}​$
+- $K_2=\left\{\text{SerialNo} \right\}​$
+
+Both of them are also superkeys. However, $\left\{\text{SerialNo, Make} \right\}$ is a superkey but not a key.
+
+
+
+Remember:
+
+- Any key is a superkey (but not vice versa)
+- Any set of attributes that includes a key is a superkey
+- A minimal superkey is also a key
+
+
+
+#### 5.2.2.2  Key and Primary Key
+
+- If a relation has several candidate keys, one is chosen arbitrarily to be the primary key and the primary key attributes are underlined.
+- For the CAR example, we can choose either $K_1$ or $K_2$ to be the primary key.
+- The primary key value is used to uniquely identify each tuple in a relation
+- General Rule: Choose as primary key the smallest of the candidate keys (in terms of size). Better to choose $K_2$ as the primary key for CAR.
+
+
+
+## 5.3 Entity Integrity
+
+The primary key of attributes PK of each relation schema R cannot have null values in any values in any tuples of R
+
+- Primary key values are used to identify the individual tuples
+- $t[PK]\ne null$ for any tuple in R
+- If PK has several attributes, null is not allowed in any of these attributes
+
+Other attributes of R may be constrained to disallow null values, even though they are not members of the primary key.
+
+
+
+## 5.4 Referential Integrity
+
+- Key and entity integrity constraints are specified on individual relations
+- Referential integrity is a constraints involving two relations
+  - To specify a relationship among tuples in two relations
+  - The referencing relation and the referenced relation ($R_1\rightarrow R_2$)
+- Tuples in the referencing relation $R_1$ have attributes FK (called foreign key attributes) that reference the primary key attributes PK of the referenced relation $R_2$ if it satisfies:
+  - The attribtues in FK have the same domains as the primary key attributes PK of $R_2$
+
+
+
