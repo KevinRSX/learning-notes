@@ -1,4 +1,4 @@
-1. Lecture 1: Entity-Relationship (ER) Models
+# 1 Lecture 1: Entity-Relationship (ER) Models
 
 ## 1.1 Concepts of ER Model
 
@@ -316,7 +316,7 @@ In relational model, we will adapt to some terminologies.
 
 
 
-# 3. Lecture 3: Structural Query Language (SQL)
+# 3 Lecture 3: Structural Query Language (SQL)
 
 Resource for this lecture: [Fundamentals of Database Systems, Chapter 4-5](https://www.amazon.com/Fundamentals-Database-Elmasri-Navathe-Shamkant/dp/933258270X/ref=sr_1_1?ie=UTF8&qid=1548904565&sr=8-1&keywords=fundamentals+of+database+systems.+7th+edition)
 
@@ -333,7 +333,9 @@ SQL is a comprehensive database language with:
 - Facilities for defining views on the database, for specifying security and authorisation, for defining integrity constraints, and for specifying transaction controls
 - Rules for embedding SQL statements into a general-purpose programming language
 
+ 
 
+<!--more-->
 
 ## 3.1 SQL Data Definition and Data Types
 
@@ -507,6 +509,8 @@ It is also possible to rename the relation attributes within the query in SQL by
 
 ```sql
 EMPLOYEE AS E(Fn, Mi, Ln, Ssn, Bd, Addr, Sex, Sal, Sssn, Dno)
+
+
 ```
 
 in the FROM clause, every attribute will have its own alias.
@@ -529,17 +533,23 @@ Examples:
 SELECT *
 FROM EMPLOYEE
 Dno = 5;
+
+
 ```
 
 ```sql
 SELECT *
 FROM EMPLOYEE, DEPARTMENT
 WHERE Dname = 'Research' AND Dno = Dnumber;
+
+
 ```
 
 ```sql
 SELECT *
 FROM EMPLOYEE, DEPARTMENT;
+
+
 ```
 
 
@@ -557,6 +567,8 @@ Q11
 ```sql
 SELECT ALL Salary
 FROM EMPLOYEE;
+
+
 ```
 
 Q11A
@@ -564,6 +576,8 @@ Q11A
 ```sql
 SELECT DISTINCT Salary
 FROM EMPLOYEE;
+
+
 ```
 
 
@@ -582,9 +596,11 @@ We can apply set operations UNION, EXCEPT, INTERSECT to the SELECT statements of
 (SELECT DISTINCT Pnumber
  FROM EMPLOYEE, PROJECT, DEPARTMENT
  WHERE Dnumber = Dno AND Mgr_ssn = Ssn AND Lname = 'Smith');
+
+
 ```
 
-SQL has provides corresponding multiset operations: UNION ALL, EXCEPT ALL, INTERSECT ALL, whose results are multisets so that duplicates are not eliminated.
+SQL has provided corresponding multiset operations: UNION ALL, EXCEPT ALL, INTERSECT ALL, whose results are multisets so that duplicates are not eliminated.
 
 
 
@@ -601,6 +617,7 @@ LIKE comparison operator is used for pattern matching in SQL:
 SELECT Fname, Lname
 FROM EMPLOYEE
 WHERE Address LIKE '%HOUSTON,TX%';
+
 ```
 
 *Query 12A*: Find all employees who were born during the 1950s
@@ -609,6 +626,7 @@ WHERE Address LIKE '%HOUSTON,TX%';
 SELECT Fname, Lname
 FROM EMPLOYEE
 WHERE Bdate LIKE '__5_______';
+
 ```
 
 
@@ -624,6 +642,7 @@ SELECT DISTINCT cname
 FROM Borrow
 WHERE bname = "Kowloon"
 ORDER BY cname;
+
 ```
 
 Example 2: List the entire borrow table in descending order of amount, and if several loans have the same amount, order them in ascending order by loan#:
@@ -632,6 +651,7 @@ Example 2: List the entire borrow table in descending order of amount, and if se
 SELECT *
 FROM Borrow
 ORDER BY amount DESC, loan# ASC;
+
 ```
 
 
@@ -641,3 +661,702 @@ ORDER BY amount DESC, loan# ASC;
 The INSERT statement is used to insert a single record or multiple records into a table.
 
 - Insert a single record using the VALUES keyword
+
+  ```SQL
+  INSERT INTO suppliers
+  (supplier_id, supplier_name)
+  VALUES
+  (5000, 'Apple');
+  
+  ```
+
+- Insert multiple records using a SELECT statement
+
+  ```sql
+  INSERT INTO suppliers (supplier_id, supplier_name)
+  SELECT account_no, name
+  FROM customers
+  WHERE customer_id > 5000;
+  
+  ```
+
+  
+
+### 3.2.8 DELETE Statement
+
+The DELETE statement is used to delete a single record or multiple records from a table.
+
+The syntax is:
+
+```sql
+DELETE FROM table
+WHERE [conditions];
+
+```
+
+- Table: the table that you wish to delete records from
+- WHERE conditions: Optional. The conditions that must be met for the records to be deleted. If no conditions are provided, then all records from the table will be deleted.
+
+Example: Delete all records from the employee table where the first_name is Bob.
+
+```sql
+DELETE FROM employee
+WHERE first_name = "Bob";
+
+```
+
+
+
+### 3.2.9 UPDATE Statement
+
+The UPDATE statement is used to update existing records in a table.
+
+Example 1: Update the last_name to "Bob" in the employee table the employee_id is 123.
+
+```sql
+UPDATE employee
+SET last_name = "Bob"
+WHERE employee_id = 123;
+
+```
+
+Example 2: Increase the payment by 5% to all accounts. It is applied to each tuple exactly once.
+
+```sql
+UPDATE deposit
+SET balance = balance * 1.5;
+
+```
+
+Example 3: Increase the payment by 6% to all accounts with balance over $10000; all others receive 5% increase
+
+```sql
+UPDATE Deposit
+SET balance = balance * 1.06 WHERE balance > 10000;
+UPDATE Deposit
+SET balance = balance * 1.05 WHERE balance <= 10000;
+
+```
+
+
+
+## 3.3 Advanced Queries in SQL
+
+### 3.3.1 Nested Queries and Set Comparisons
+
+- Nest queries
+  - SELECT-FROM-WHERE blocks WHERE clause of another query
+  - For example, some queries require that existing values in the database be fetched and then used in a comparison condition
+- Comparison operator IN
+  - Compares value v with a set (or multiset) of values V
+  - Evaluate to TRUE if v is one of the elements in V
+
+Recall *Query 4*: Make a list of all project numbers for projects that involve an employee whose last name is 'Smith', either as a worker or as a manager of the department that controls the project.
+
+We can use the above syntax to rewrite the same query:
+
+```sql
+SELECT DINSTINCT Pnumber
+FROM PROJECT
+WHERE Pnumber IN
+	(SELECT Pnumber
+     FROM PROJECT, DEPARTMENT, EMPLOYEE
+     WHERE Dnum = Dnumber AND Mgr_ssn = Ssn AND Lname = 'Smith')
+    OR
+    (SELECT Pno
+     FROM WORKS_ON, EMPLOYEE
+     WHERE Essn = Ssn AND Lname = 'Smith');
+
+```
+
+
+
+Multiple values should be placed within parentheses for comparisons
+
+Example: Select the Essn of all employees who work the same `(project, hours)` as the employee Essn = "123456789"
+
+```sql
+SELECT DINSTINCT Essn
+FROM WORK_ON
+WHERE (Pno, Hours) IN (SELECT Pno, Hours
+                       FROM WORKS_ON
+                       WHERE Essn = "123456789");
+
+```
+
+
+
+Other comparison operators can also be used to compare a single value v.
+
+- = ANY or =SOME returns TRUE if the value v is equal to some value in the set V and is hence equivalent to IN
+- =ALL returns TRUE if the value v is equal to all the values in the set V (v is the only element in set V)
+- Other operators such as >, >=, <, <=, and <>(not equals) can be combined
+
+Example 1: Find the last name and first name of the employees with salary higher than all the employees in the department with Dno=5
+
+```sql
+SELECT Lname, Fname
+FROM EMPLOYEE
+WHERE Salary > ALL (SELECT salary,
+                   	FROM EMPLOYEE,
+                   	WHERE Dno = 5);
+
+```
+
+
+
+Example 2: Find names of all branches that have higher assets than some branch located in Central
+
+```sql
+SELECT bname
+FROM Branch
+WHERE assets > SOME (SELECT assets
+                   	 FROM Branch
+                     WHERE b-city = "Central");
+
+```
+
+Alternatively, we can avoid using nested queries by aliasing
+
+```sql
+SELECT X.bname
+FROM Branch X, Branch Y
+WHERE X.assets > Y.assets AND Y.b-city = "Central";
+
+```
+
+
+
+Example 3: Find all customers who have an account at some branch in which Jones has an account
+
+```sql
+SELECT DISTINCT T.cname
+FROM Deposit T
+WHERE T.cname != "Jones"
+		AND T.bname IN (SELECT S.bname
+                       	FROM Deposit S
+                       	WHERE S.cname = "Jones");
+
+```
+
+
+
+### 3.3.2 EXISTS Condition
+
+- The EXISTS condition is used in combination with a nested query and is considered "to be met" if the nested query returns at least one row.
+- The NOT EXISTS condition is used in combination with a nested query and is considered "to be met" if the nested query returns empty result.
+
+Example 1: Find all customers of Central branch who have an account there but no loan there
+
+```sql
+SELECT C.name
+FROM Customer C
+WHERE EXISTS
+			(SELECT *
+             FROM Deposit D
+             WHERE D.cname = C.cname
+            	AND D.bname = "Central")
+AND NOT EXISTS
+			(SELECT *
+             FROM Borrow B
+             WHERE B.cname = C.cname
+            	AND B.bname = "Central");
+
+```
+
+
+
+Example 2: Find branches having greater assets than all branches in N.T.
+
+```sql
+SELECT X.bname
+FROM Branch X
+WHERE NOT EXISTS (SELECT *
+                  FROM Branch Y
+                  WHERE Y.b-city = "N.T."
+                 	AND Y.assets >= X.assets);
+
+```
+
+
+
+Example 3: Find all customers who have a deposit account at ALL branches located in Kowloon
+
+```sql
+SELECT DISTINCT S.cname
+FROM Deposit S
+WHERE NOT EXISTS ((SELECT bname
+                   FROM Branch
+                   WHERE b-city = "Kowloon") -- all branches in Kowloon
+           		Minus
+           		 (SELECT T.bname
+                  FROM Deposit T
+                  WHERE S.cname = T.cname)); -- branches where S has an account
+
+```
+
+
+
+### 3.3.3 Aggregate Functions
+
+- Built-in aggregate functions: COUNT, SUM, MAX, MIN and AVG
+- Used to summarize information from multiple tuples into a single tuple
+
+Example 1: Find the sum of the salaries of all employees, the maximum salary, the minimum salary, and the average salary
+
+```sql
+SELECT SUM(Salary), MAX(Salary), MIN(Salary), AVG(Salary)
+FROM EMPLOYEE;
+
+```
+
+
+
+Example 2: Find the sum of the salaries of all employees of the "Research" department, as well as the maximum salary, the minimum salary, and the average salary in this department
+
+```sql
+SELECT SUM(Salary), MAX(Salary), MIN(Salary), AVG(Salary)
+FROM EMPLOYEE, DEPARTMENT
+WHERE Dno = Dnumber AND Dname = "Research";
+
+```
+
+
+
+Example 3: Retrieve the total number of employees in the company
+
+```sql
+SELECT COUNT(*) -- count(*) returns the number of rows
+FROM EMPLOYEE;
+
+```
+
+
+
+Example 4: Retrieve the total number of employees in the "Research" department
+
+```sql
+SELECT COUNT(*)
+FROM EMPLOYEE, DEPARTMENT
+WHERE Dno = Dnumber AND Dname = "Research";
+
+```
+
+
+
+Example 5: Count the number of distinct salary values in the database
+
+```sql
+SELECT COUNT(DISTINCT Salary)
+FROM EMPLOYEE;
+
+```
+
+
+
+Example 6: Retrieve the names of all employees who have two or more dependents
+
+```sql
+SELECT Lname, Fname
+FROM EMPLOYEE
+WHERE (SELECT COUNT(*)
+       FROM DEPENDENT
+       WHERE SSN=ESSN)>=2
+
+```
+
+
+
+### 3.3.4 GROUP BY Clause
+
+- We can apply the aggregate functions to subgroups of tuples in a relation based on some attribute values. For example, find the average salary of employees in each department.
+- Grouping the tuples that have same value of some attributes, called the grouping attributes, and the aggregate function is applied to each subgroup independently.
+- SQL has the GROUP BY clause for this purpose.
+- The GROUP BY clause specifies the grouping attributes, which should also appear in the SELECT clause, so that the value resulting from applying each function to a group of tuples appears along with the value of the grouping attributes.
+
+
+
+Example 1: For each department, retrieve the department number, the number of employees in the department, and their average salary.
+
+```sql
+SELECT Dno, COUNT(*), AVG(Salary)
+FROM EMPLOYEE
+GROUP BY Dno
+```
+
+
+
+Example 2: For each project, retrieve the project number, the project name, and the number of employees who work on that project
+
+```sql
+SELECT Pnumber, Pname, COUNT(*)
+FROM PROJECT, WORK_ON
+WHERE Pnumber = Pno
+GROUP BY Pnumber, Pname
+```
+
+
+
+# 4 Lecture 4: Relational Algebra
+
+## 4.1 Overview
+
+### 4.1.1 What is Relational Algebra?
+
+- Relational algebra is a formal language for the relational model
+- The operations in relational algebra enable a user to specify basic retrieval requests (or queries)
+- Relational algebra consists of a set of operations on relations to generate relations
+- The result of an operation is a new relation that can be further manipulated using operations
+- A sequence of relational algebra operations forms a relational algebra expression
+
+
+
+### 4.1.2 Importance of Relational Algebra
+
+- Relational algebra provides a formal foundation for relational model
+- It is used as a basis for implementing and optimizing queries in query processing and optimization
+- Its concepts are incorporated into SQL standard language for relational database management systems
+- The internal modules of most commercial RDBMS are based on relational algebra
+
+
+
+### 4.1.3 Operations
+
+- Relational algebra consists of several groups of operations
+- Unary Relational Operations
+  - SELECT (symbol: $\sigma$ (sigma))
+  - PROJECT (symbol: $\pi$ (pi))
+  - RENAME (symbol: $\rho$ (rho))
+- Relational algebra operations from set theory
+  - UNION ($\cup​$), INTERSECTION ($\cap​$), DIFFERENCE ($-​$)
+  - CARTESIAN PRODUCT ($\times$)
+- Binary Relational Operations
+  - JOIN (several variations of JOIN exist)
+  - DIVISION
+- Additional Relational Operations
+  - OUTER JOINS, OUTER JOIN
+  - AGGREGATE FUNCTIONS (These compute summary of information: for example, SUM, COUNT, AVG, MIN, and MAX)
+
+
+
+## 4.2 Unary Relational Operations
+
+### 4.2.1 SELECT
+
+The SELECT operation (denoted by $\sigma$) is used to select a subset of the tuples from a relation based on a selection condition
+
+- The selection conditions acts as a filter to keep only those tuples that satisfy the qualifying condition
+- Horizontal partitioning: Tuples satisfying the condition are selected whereas the other tuples are discarded (filtered out)
+
+
+
+Examples:
+
+1. Select the EMPLOYEE tuples whose department number is 4:
+
+   $\sigma_{DNO=4}(EMPLOYEE)$
+
+   It is equivalent to the sql statement:
+
+   ```sql
+   SELECT *
+   FROM EMPLOYEE
+   WHERE DNO = 4;
+   ```
+
+2. Select the employee tuples whose salary is greater than $30,000
+
+   $\sigma_{SALARY>30,000}(EMPLOYEE)$
+
+   It is equivalent to the sql statement:
+
+   ```sql
+   SELECT *
+   FROM EMPLOYEE
+   WHERE SALARY > 30000;
+   ```
+
+
+
+- The SELECT operation $\sigma_{\text{<selection  condition>}}(R)$ produces a relation S that has the same schema (i.e., same attributes) as R
+
+- SELECT $\sigma$ is commutative:
+
+  $\sigma_{\text{<condition1>}}(\sigma_{\text{condition2}}(R))=\sigma_{\text{condition2}}(\sigma_{\text{condition1}}(R))​$
+
+- Because of commutatively property, a sequence of SELECT operations may be applied in any order
+
+- A cascade of SELECT operations may be replaced by a single selection with a conjunction (and) of all the conditions:
+
+  $\sigma_{\text{<condition1>}}(\sigma_{\text{<condition2>}}(\sigma_{\text{<condition3>}}(R)))=\sigma_{\text{<cond1>}AND\text{<cond2>}AND\text{<cond3>}}(R)$
+
+- The number of tuples in the result of a SELECT operation is less than (or equal to) the number of tuples in the input relation R
+
+- The fraction of tuples selected by a selection condition is called the selectivity of the condition
+
+
+
+### 4.2.2 PROJECT
+
+PROJECT operation is denoted by $\pi$
+
+This operation keeps certain attributes from a relation and discards the other attributes
+
+- PROJECT creates a vertical partitioning: the list of specified attributes is kept in each tuple and the other attributes in each tuple are discards
+
+
+
+Example: To list each employee's first and last name and salary, the following is used:
+
+- $\pi_{LANAME,FNAME,SALARY}(EMPLOYEE)$
+
+  This is equivalent to the sql query:
+
+  ```sql
+  SELECT LNAME, FNAME, SALARY
+  FROM EMPLOYEE;
+  ```
+
+
+
+The general form of the project operation is: $\pi_{\text{<attribute list>}}(R)$. The attribute list is the desired list of attributes from relation R
+
+The project operation removes any duplicate tuples
+
+- This is because the result of the project operation must be a set of tuples
+- Mathematical sets do not allow duplicate elements
+
+
+
+- The number of tuples in the result of projection $\pi_{<list>}(R)$ is always less (duplicates are removed) or equal (unique vales) to the number of tuples in R
+- If the list of attributes includes a key of R, then the number of tuples in the result of PROJECT is equal to the number of tuples in R
+- PROJECT is not commutative
+  - $\pi_{<list1>}(\pi_{<list2>}(R))\ne \pi_{<list2>}(\pi_{<list1>}(R))$
+  - $\pi_{<list1>}(\pi_{<list2>}(R))=\pi_{<list1>}(R)$ as long as list2 contains the attributes in list1
+
+### 4.2.3 RENAME
+
+The RENAME operator is denoted by $\rho$
+
+The general RENAME operation $\rho$ can be expressed by any of the following forms:
+
+- $\rho_{S(B_1,B_2,…,B_n)}(R)​$ changes both the relation name to S and the attribute names only to $B_1, B_2, …,B_n​$
+- $\rho_S(R)$ changes the relation name only to S
+- $\rho_{(B_1,B_2,…,B_n)}(R)$ changes the attribute names only to $B_1, B_2, …,B_n$
+
+The first rename operator is equivalent to the following sql query:
+
+```sql
+SELECT E.Fname AS F_Name, E.Lname AS L_Name, E.Salary AS Salary
+FROM EMPLOYEE AS E
+WHERE E.Dno = 5
+```
+
+
+
+For convenience, we also use a shorthand for renaming attributes in an intermediate relation:
+
+1. If we write:
+
+   $RESULT\leftarrow \pi_{FNAME,LNAME,SALARY}(\text{DEP5_EMPS})​$
+
+   RESULT will have the same attribute names as DEP5_EMPS (same attributes as EMPLOYEE)
+
+2. If we write
+
+   $RESULT\leftarrow \rho_{RESULT(F,M,L,B,A,SX,SAL,SU,DNO)}(\text{DEP5_EMPS})$
+
+   The 10 attributes of DEP5_EMPS are renamed to F, M, L, S, B, A, SX, SAL, SU, DNO, respectively
+
+
+
+## 4.3 Relational Algebra Expressions
+
+- We may want to apply several relational algebra operations one after another
+  - Either we can write the operations as a single relational algebra expression by nesting the operations, or
+  - We can apply one operation at a time and create intermediate result relations
+- In the latter case, we must give names (rename) to the relations that hold the intermediate results
+
+
+
+Example: Retrieve the first name, last name, and salary of all employees who work in department number 5, we must apply a select and a project operation
+
+Method 1: We can write a single relational algebra expression as follows:
+
+$\pi_{FNAME, LNAME, SALARY}(\sigma_{DNO=5}(EMPLOYEE))$
+
+Method 2: Or, we can explicitly shoow the sequence of operations, giving a name to each intermediate relation:
+
+$\text{DEP5_EMPS}\leftarrow \sigma_{DNO=5}(EMPLOYEE)$
+
+$RESULT\leftarrow \pi_{FNAME, LNAME, SALARY}(\text{DEPS5_EMPS})$
+
+
+
+## 4.4 Relational Algebra Operations from Set Theory
+
+### 4.4.1 UNION
+
+UNION is a binary operation, denoted by $\cup$. 
+
+- The result of $R\cup S$ is a relation that includes all tuples that are either in R or in S or in both R and S
+
+- Duplicated tuples are eliminated
+- The two operand relations R and S **must be type compatible**. That is,
+  - R and S must have same number of attributes
+  - Each pair of corresponding attributes must be type compatible (have same or compatible domains)
+
+
+
+Example: Retrieve the social security numbers of all employees who either work in department 5 or directly supervise an employee who works in department 5
+
+Solution: We use the follwing expression
+$$
+\text{DEP5_EMPS}\leftarrow \sigma_{DNO=5}(EMPLOYEE) \\
+RESULT1\leftarrow = \pi_{SSN}(\text{DEP5_EMPS}) \\
+RESULT2(SSN)\leftarrow = \pi_{SUPERSSN}(\text{DEP5_EMPS}) \\
+RESULT = RESULT1\cup RESULT2
+$$
+
+
+Note that type compatibility of operands is required for the binary set operation UNION, INTERSECTION, and SET DIFFERENCE. The result of $R1\cup R2$ has the same attribute names as the first operand relation R1
+
+
+
+### 4.4.2 INTERSECTION
+
+INTERSECTION is denoted by $\cap$
+
+- The result of the operation $R\cap S$, is a relation that includes all tuples that are in both R and S
+  - Similarly, the attribute names in the result will be the same as the attribute names in R
+- The two operand relations R and S must be "type compatible"
+
+
+
+### 4.4.3 SET DIFFERENCE
+
+SET DIFFERENCE (sometimes also refers to MINUS or EXCEPT) is denoted by $-$
+
+- The result of $R-S$, is a relation that includes all tuples that are in R but not in S
+  - The attribute names in the result will be the same as the attribute names in R
+- The two operand relations R and S must be "type compatible"
+- $R\cap S=(R\cup S)-(R-S)-(S-R)​$
+
+
+
+### 4.4.4 Properties
+
+- Both UNION and INTERSECTION are commutative operations
+- Both union and intersection can be treated as n-ary operations applicable to any number of relations as both are associative operations
+- The minus operation is not commutative
+
+
+
+### 4.4.5 CARTESIAN(CROSS) PRODUCT
+
+The operation is used to combine tuples from two relations in a combinatorial fashion
+
+- Denoted by $R(A_1,A_2,…,A_n)\times S(B_1,B_2,…,B_m)$
+
+- Result is a relation Q with degree n+m attributes $Q(A_1,…,A_n,B_1,…,B_m)$
+
+- The resulting relation state has one tuple for each combination of tuples - one from R and one from S
+- Hence, if R has $n_R$ tuples and S has $n_S$ tuples, then $R\times S$ will have $n_R\cdot n_S$ tuples
+- The two operands do not have to be type compatible
+
+
+
+Generally, CROSS PRODUCT is not a meaningful operation because some relations do not exist in the mini-world. However, it can become useful when followed by other operations.
+
+Example: Retrieve the name of female employees and their dependents
+
+Solution:
+$$
+\text{FEMALE_EMPS}\leftarrow \sigma_{SEX='F'}(EMPLOYEE) \\
+EMPNAMES\leftarrow \pi_{FNAME, LNAME, SSN}(\text{FEMALE_EMPS}) \\
+\text{EMP_DEPENDENTS}\leftarrow \text{EMPNAMES}\times \text{DEPENDENT} \\
+\text{ACTUAL_DEPS}\leftarrow \sigma_{ESSN=SSN}(\text{EMP_DEPENDENTS}) \\
+RESULT\leftarrow \pi_{\text{FNAME, LNAME, DEPENDENT_NAME}}(\text{ACTUAL_DEPS})
+$$
+
+
+## 4.5 Other Binary Relational Operations
+
+### 4.5.1 JOIN
+
+Join Operation is denoted by $\Join$
+
+- The sequence of CARTESIAN PRODUCT followed by SELECT is used quite commonly to identify and select related tuples from two relations
+- A special operation, called JOIN combines this sequence into a single operation
+- The general form of a JOIN operation on two relations $R(A_1,A_2,…,A_n)$ and $S(B_1,B_2,…,B_m)$ is: $R\Join_{\text{<join condition>}}S$
+- R and S can be any relations that result from general relational algebra expressions
+
+
+
+Example: Suppost that we want to retrieve the name oof the manager of each department, to get the manager's name, we need to combine each DEPARTMENT tuple with the EMPLOYEE tuple whose Ssn value matches the Mgr_ssn value in the department tuple
+
+Therefore, the result is $\text{DEPT_MGR}\leftarrow DEPARTMENT\Join_{\text{Mgr_ssn=Ssn}}EMPLOYEE$
+
+Here, Mgr_ssn = Ssn is the join condition. This operation combines each department record with the employee who manages the department.
+
+
+
+Consider the following JOIN operation: $R(A_1,A_2,…,A_n)\Join_{R.A_i=S.B_j} S(B_1,B_2,…,B_m)$. The result is a relation Q with degree n+m attributes $Q(A_1,A_2,…,A_n,B_1,B_2,…,B_m)$ in that order, where each tuple satisfy the join condition, $r[A_i]=s[B_j]$. Hence, if R has $n_R$ tuples, and S has $n_S$ tuples, then the join result will generally have less than $n_R\cdot n_S$ tuples
+
+
+
+The general case of JOIN operation is called a theta-join $R\Join S$, whose join condition is called theta. Theta can be any general boolean expression on the attributes of R and S.
+
+
+
+#### 4.5.1.1 EQUIJOIN
+
+The most common use of join involves join conditions with equality condition only. Such a join, where the only comparison operator used is =. is called an EQUIJOIN
+
+- In the result of an EQUIJOIN, we always have one or more pairs of attributes (whose names need not be identical) that have identical values in every tuple
+- The JOIN seen in the previous example was an EQUIJOIN
+
+
+
+#### 4.5.1.2 NATURAL JOIN
+
+- Another variation of JOIN called NATURAL JOIN denoted by * was created to get rid of the second (superfluous) attribute in an EQUIJOIN condition, because one of each pair of attributes with identical values is superfluous.
+- The standard definition of natural join requires that the two join attributes, or each pair of corresponding join attributes, have the same name in both relations
+- If this is not the case, a renaming operation is applied first
+
+
+
+Example 1: To apply a natural join on the DNUMBER attributes of DEPARTMENT and DEPT_LOCATIONS, it is sufficient to write:
+$$
+\text{DEPT_LOCS}\leftarrow \text{DEPARTMENT}*\text{DEPT_LOCATIONS}
+$$
+as the only attribute with the same name is DNUMBER. An implicit join condition is created based on this attribute: $\text{DEPARTMENT.DNUMBER=DEPT_LOCATIONS.DNUMBER}$
+
+
+
+Example 2: Consider the following NATURAL JOIN operation
+$$
+Q(A,B,C,D,E)\leftarrow R(A,B,C,D)*S(C,D,E)
+$$
+The implicit join condition includes each pair of attributes with the same name "AND"ed together.
+
+
+
+### 4.5.2 DIVISION
+
+The division operation is applied to two relations R and S
+
+- $R(Z)\div S(X)​$, where X is a subset of Z
+- Let $Y=Z-X$, the result of DIVISION is a relation $T(Y)$ that includes a tuple $t$ if $t_R$ appear in R with $t_R[Y]=t$, and with $t_R[X]=t_s$ for every tuple $t_s​$ in S
+
+
+
+## 4.6 Complete Set of Relational Operations
+
+The set of operations including SELECT, PROJECT, UNION, DIFFERENCE, RENAME, and CARTESIAN PRODUCT is called a complete set because any other relational algebra expression can be expressed by a combination of these five operations.
+
+For example:
+
+- $R\cap S=(R\cup S)-(R-S)-(S-R)$
+- $R\Join_{\text{<join condition>}}S=\sigma_{<\text{join condition}>}(R\times S)$
+
