@@ -1,6 +1,4 @@
----
-typora-root-url: ../../../Hexo-blog/source
----
+
 
 # 1 Lecture 1 -- Computer System & OS Overview
 
@@ -17,7 +15,7 @@ The basic elements are processor, main memory, I/O modules and system bus.
   - Control Unit
   - Arithmetic & Logic Unit (ALU)
 - Controls operation and performs data processing
-- Works repeatedly and continuounsly in cycles to execute instructions![machine-cycle](/images/3103img/machine-cycle.png)
+- Works repeatedly and continuounsly in cycles to execute instructions![machine-cycle](images/machine-cycle.png)
 
 
 
@@ -44,7 +42,7 @@ The basic elements are processor, main memory, I/O modules and system bus.
 
 - Provides for communications among processors, main memory and I/O modules
 
-![top-level-view](/images/3103img/top-level-view.png)
+![top-level-view](images/top-level-view.png)
 
 
 
@@ -73,7 +71,7 @@ The basic elements are processor, main memory, I/O modules and system bus.
   - data processing
   - Contol
 
-  ![eg-program-execution](/images/3103img/eg-program-execution.png)
+  ![eg-program-execution](images/eg-program-execution.png)
 
 
 
@@ -89,13 +87,13 @@ Consider the example above, the first digit in an instruction is the opcode (4 b
 
 An interrupt means other modules could interrupt the normal sequencing of the processor.
 
-![interrupt-class](/images/3103img/interrupt-class.png)
+![interrupt-class](images/interrupt-class.png)
 
 Interrupts are provided to improve processor utilization. Since most peripheral modules are slower than the processor, if the processor pauses to wait for device, there will be a wasteful use of it.
 
 Consider the following example showing the difference between no interruption, short I/O wait and long I/O wait.
 
-![interrupt-comparison](/images/3103img/interrupt-comparison.png)
+![interrupt-comparison](images/interrupt-comparison.png)
 
 Case 1: No interrupts. When the technique is not used, the processor has to wait for the whole I/O operation to be completed. As the I/O operation takes time longer than the processor in million times order, it wastes the use of the processor a lot.
 
@@ -103,13 +101,13 @@ Case 2: Interrupts with shor I/O wait. The processor will proceed to the next op
 
 Case 3: As in case 2, the processor lets the I/O module execute the I/O command. However, after it completes the next instruction, it may needs to wait for the I/O module to finish the command.
 
-![intstruction-cycle-with-interrupts](/images/3103img/intstruction-cycle-with-interrupts.png)
+![intstruction-cycle-with-interrupts](images/intstruction-cycle-with-interrupts.png)
 
 To process the interrupt, the processor needs to find the way to store the current processing states (PC, PSW, and values in other registers). Program stack is used.
 
-![simple-interrupt-processing](/images/3103img/simple-interrupt-processing.png)
+![simple-interrupt-processing](images/simple-interrupt-processing.png)
 
-![interrupt-memory-register-change](/images/3103img/interrupt-memory-register-change.png)
+![interrupt-memory-register-change](images/interrupt-memory-register-change.png)
 
 
 
@@ -125,7 +123,7 @@ To process the interrupt, the processor needs to find the way to store the curre
 
 (More notes about how it is different from multiprocessing will be added later on)
 
-![multiprogramming-example](/images/3103img/multiprogramming-example.png)
+![multiprogramming-example](images/multiprogramming-example.png)
 
 With uniprogramming, there is gross underutilisation of all resources. The improvement of average resource utilisation, throughput and response times is evident if multiprogramming is used.
 
@@ -149,7 +147,7 @@ Going from top to down along the hierarchy, we shall observe
 - Increasing access time 
 - Decreasing frequency of access to the memory by the processor
 
-![memory-hierarhy](/images/3103img/memory-hierarhy.png)
+![memory-hierarhy](images/memory-hierarhy.png)
 
 ### 1.5.1 Cache Memory
 
@@ -164,7 +162,7 @@ Cache is checked first to determine if information is there.
 
 Note that if the *hit ratio* is low, the time penalty for an idle cache access will make this design even more inefficient than the design without cache memory.
 
-![hit-ratio-effect](/images/3103img/hit-ratio-effect.png)
+![hit-ratio-effect](images/hit-ratio-effect.png)
 
 By analysing a simple two-level memory, we shall find that the relationship is linear.
 
@@ -204,7 +202,7 @@ When the processor encounters an instruction related to I/O, it executes that in
 - CPU periodically checks the status of I/O module until it determines the instruction is completed.
 - The performance is poor.
 
-<img src="/images/3103img/programmed-IO.png" style="zoom:50%" />
+<img src="images/programmed-IO.png" style="zoom:50%" />
 
 
 
@@ -215,7 +213,7 @@ When the processor encounters an instruction related to I/O, it executes that in
 - CPU executes the data transfer and then resumes its former processing
 - More efficient than programmed I/O because there is no needless waiting. However, interrupt-driven I/O requires active intervention of CPU to perform data transfer
 
-<img src="/images/3103img/interrupt-driven-IO.png" style="zoom:50%" />
+<img src="images/interrupt-driven-IO.png" style="zoom:50%" />
 
 
 
@@ -230,7 +228,7 @@ When the processor encounters an instruction related to I/O, it executes that in
 - DMA module transfers the entire block of data directly to and from memory without going through CPU.
 - More efficient than interrupt-driven I/O
 
-<img src="/images/3103img/direct-memory-access.png" style="zoom:50%" />
+<img src="images/direct-memory-access.png" style="zoom:50%" />
 
 
 
@@ -291,7 +289,7 @@ Main objectives:
 
 ### 1.7.3 OS as Resource Manager
 
-<img src="/images/3103img/os-resource-management.png" style="zoom:50%" />
+<img src="images/os-resource-management.png" style="zoom:50%" />
 
 - A computer is a set of resources for the movement, storage, and processing of data
 - The OS is responsible for managing these resources
@@ -353,7 +351,7 @@ Omitted. See lecture notes and the textbook.
 
 
 
-<img src="/images/3103img/two-state-process-model.png" style="zoom:50%" />
+<img src="images/two-state-process-model.png" style="zoom:50%" />
 
 - Processes that are not running are kept in some sort of queue, waiting for their turn to execute. Processes moved by the dispatcher of the OS to the CPU then back to the queue until the task is completed.
 
@@ -363,7 +361,7 @@ Omitted. See lecture notes and the textbook.
 
 While some processes in the Not Running state are ready to execute, others may be blocked (e.g., waiting for an I/O operation to complete)
 
-<img src="/images/3103img/five-state-process-model.png" style="zoom:50%" />
+<img src="images/five-state-process-model.png" style="zoom:50%" />
 
 - Running: The process that is currently being executed.
 - Ready: A process that is prepared to execute when given the opportunity
@@ -384,13 +382,13 @@ We can either use two queues - one `READY_QUEUE` and another `BLOCKED QUEUE`, or
 
 
 
-<img src="/images/3103img/one-suspend-state.png" style="zoom:75%" />
+<img src="images/one-suspend-state.png" style="zoom:75%" />
 
 However, it does no good to activate a suspended process in blocked state. For this reason, a model of two states `Blocked/Suspend` and `Ready/Suspend` is introduced.
 
 
 
-<img src="/images/3103img/two-suspend-state.png" style="zoom:75%" />
+<img src="images/two-suspend-state.png" style="zoom:75%" />
 
 Here, we summarize the reason for process suspension:
 
@@ -408,7 +406,7 @@ Here, we summarize the reason for process suspension:
 
 OS manages the use of system resource by processes.
 
-<img src="/images/3103img/process-and-resources.png" style="zoom:75%" />
+<img src="images/process-and-resources.png" style="zoom:75%" />
 
 In this snapshot, process $P_1$ is running and it has 2 I/O devices; $P_2$ is blocked waiting in memory for an I/O device allocated to $P_1$; $P_n$ has been swapped out and is suspended.
 
@@ -419,7 +417,7 @@ In this snapshot, process $P_1$ is running and it has 2 I/O devices; $P_2$ is bl
 - For the OS to manage processes and resources, it must have information about the current status of each process and resource
 - Tables are constructed for each entity the OS manages.
 
-<img src="/images/3103img/os-control-tables.png" style="zoom:75%" />
+<img src="images/os-control-tables.png" style="zoom:75%" />
 
 
 
@@ -521,13 +519,13 @@ Each process is assigned a unique numeric identifier. Use:
 
 The queuing structure could be implemented as linked lists of PCBs in which pointers can be stored in the PCBs (structuring information).
 
-<img src="/images/3103img/process-list-structures.png" style="zoom:50%" />
+<img src="images/process-list-structures.png" style="zoom:50%" />
 
 
 
 #### 2.3.5.3 Structure of Process Images in Virtual Memory
 
-<img src="/images/3103img/process-images-virtual.png" style="zoom:75%" />
+<img src="images/process-images-virtual.png" style="zoom:75%" />
 
 
 
@@ -656,7 +654,7 @@ User processes
 
 ### 2.5.2 UNIX Process States
 
-<img src="/images/3103img/unix-state-transition.png" style="zoom:75%" />
+<img src="images/unix-state-transition.png" style="zoom:75%" />
 
 - **User running**: Executing in user mode
 - **Kernel running**: Executing in kernel mode
@@ -691,3 +689,879 @@ After creating the process, the kernel can do one of the following, as part of t
   - The child process begins executing at the same point in the code as the parent, namely at the return from the fork call
 - Transfer control to another process
   - Both parent and child are left in the Ready to Run state
+
+
+
+# 3 Lecture 3 -- Threads
+
+## 3.1 Threads: Resource Ownership and Execution
+
+We know that processes have two characteristics:
+
+- Resource ownership
+  - A process is allocated ownership of resources including a virtual address space to hold the process image
+  - The OS performs a protection function to prevent unwanted interference between processes with respect to resources
+- Dispatching, Scheduling, Execution
+  - The execution of a process follows an execution path that may be interleaved with other processes.
+  - A process has an execution state and a dispatching priority, and is the entity that is scheduled and dispatched by the OS.
+
+
+
+<!--more-->
+
+These two characteristics can be treated independently by OS.
+
+Dispatching: Thread
+
+Resource Ownership: Process
+
+**Multithreading** is the ability of an OS to support multiple, concurrent paths of execution within a single process
+
+
+
+### 3.1.1 Single-threaded Approaches
+
+A single thread of execution per process, in which the concept of a thread is not recognised.
+
+- MS-DOS supports a single-user process and a single thread
+- Some variants of UNIX support multiple user processes but only support one thread per process
+
+
+
+### 3.1.2 Multi-threaded Approaches
+
+- A Java run-time environment is a system of one process with several threads
+- The use of multiple processes, each of which supports multiple threads are found in Windows, Solaris, and many modern versions of UNIX.
+
+<img src="images/threads-and-processes.png" style="zoom:75%" />
+
+
+
+### 3.1.3 Process VS Thread
+
+- In an OS, a process is
+  - A unit of resource allocation, a virtual address space that holds the process image
+  - A unit of protection: protected access to processors, other processes (for inter-process communication), files, I/O resources
+- In a process, each thread has
+  - An execution state (running, ready, etc.)
+  - A saved thread context when not running
+  - An execution stack
+  - Some per-thread static storage for local variables
+  - Access to the memory and resources of its process, shared by all threads in that process
+- One way to view a thread is as an independent program counter operating within a process
+
+<img src="images/multithreaded-process-models.png" style="zoom:75%" />
+
+As shown in the figure above, threads in the process has different stacks and control blocks to store register values, priority and other thread state-related state information. However, all of the reside in the same address space and share the same data.
+
+
+
+### 3.1.4 Activities Similar to Processes
+
+Similar to processes, threads have **execution states** and need to **synchronize** with one another.
+
+- Execution states:
+  - In an OS that supports threads, scheduling and dispatching is done on a thread basis
+  - Most of the state information dealing with execution is maintained in thread-level data structures
+  - The key states for a thread are: Running, ready, blocked
+  - Suspending and Termination state are at process-level
+- Threads need to synchronize with one another so that they don't interfere with each other or corrupt data structures
+  - All threads of a process share the same address space and other resources
+  - Any alternation of a resource by one thread affects the other threads in the same process
+
+
+
+### 3.1.5 Multithreading on a Uniprocessor
+
+Multiprogramming enables the interleaving of multiple threads within multiple processes.
+
+<img src="images/multithreading-uniprocessing.png" style="zoom:75%" />
+
+Execution passes from one thread to another either when the currently running thread is blocked or its time slice is exhausted.
+
+
+
+### 3.1.6 Benefits of Threads
+
+If an application is implemented as a set of related units of execution, it is far more efficient to do so as a collection of threads rather than a collection of separate processes. Reasons include:
+
+- Takes less time to create a new thread than a process
+- Less time to terminate a thread than a process
+- Switching between two threads takes less time then switching between processes
+- Threads enhance efficiency in communication because threads within the same process share memory and files, they can communicate with each other without invoking the kernel
+
+
+
+## 3.2 Categories of Thread Implementation
+
+### 3.2.1 User-Level Threads
+
+All thread management is done within the application by calling a threads library.
+
+- The application and its threads are allocated to a single process managed by the kernel.
+- The kernel is not aware of the existence of threads.
+- Kernel scheduling is done on a process basis.
+
+GNU portable threads is an application of ULT.
+
+
+
+Pros:
+
+- Process does not switch to the kernel mode to do thread management, therefore saves the overhead of two mode switches
+- Scheduling can be application specific
+- Can run on any OS because the threads library is a set of application-level functions
+
+Cons:
+
+- Only a single thread within a process can execute at a time, therefore a muiltithreaded application cannot take advantage of multiprocessing
+- When a ULT executes a blocking system call, all of the threads within the process are blocked
+
+
+
+### 3.2.2 Kernel-Level Threads
+
+Thread management is done by the kernel.
+
+- No thread management done by application, just an API to the kernel thread facility
+- Each user-level thread is mapped to a kernel-level thread
+- Kernel maintains context information for the whole process and individual threads within the process
+- Scheduling is done on a thread basis
+
+Example: Windows, Linux
+
+
+
+Pros:
+
+- The kernel can simultaneously schedule multiple threads from the same process onto multiple processors
+- If one thread in a process is blocked, the kernel can schedule another thread of the same process
+- Kernel routines themselves can be multithreaded
+
+Cons:
+
+- The transfer of control from one thread to another within the same process requires a mode switch to the kernel
+- Managing the KLTs is slower than ULTs
+- KLT implementation needs OS support
+
+
+
+### 3.2.3 Combined Approach
+
+m-to-n mapping hybrid implementation
+
+- Application creates m ULTs and OS provides a pool of n KLTs
+- Multiple threads within the same application can run in parallel on multiple processors
+- A blocking system call need not block the entire process
+
+Example: solaris
+
+
+
+<img src="images/ult-klt.png" style="zoom:75%" />
+
+
+
+# 4 Lecture 4  — Concurrency, Mutual Exclusion and Synchronization
+
+## 4.1 Principles of Concurrency
+
+OS design is concerned with the management of processes and threads in different systems.
+
+- Multiprogramming
+  - Multiple processes, one core
+- Multiprocessing
+  - Multiple processes, multiple cores (shared memory)
+- Distributed processing
+  - Multiple processes, multiple nodes (distributed memories)
+
+In uniprocessors, processes may be interleaved. However, in multiple-processors, processes can be not only interleaved but also overlapped.
+
+
+
+### 4.1.1 Difficulties for Concurrency
+
+- **Interleaving** and **overlapping** can be viewed as examples of concurrent processing and present the same problems.
+- The relative speed of execution of processes cannot be predicted
+  - depends on activities of other processes
+  - the way the OS handles interrupts
+  - scheduling policies of the OS
+- Sharing of global resources (like global variables)
+- Difficult for the OS to manage the allocation of resources optimally
+  - Multiple processes may request use of the same resource
+- Difficult to locate programming errors
+  - Results are not deterministic and reproducible
+
+
+
+### 4.1.2 Race Condition and OS Concerns
+
+- A race condition occurs when multiple processes or threads read and write shared data items
+  - The final result depends on how the execution of instructions in the multiple processes interleaves
+  - The loser of the race is the process that updates last and will determine the final value of the variable
+
+- The OS must
+  - Keep track of various processes
+  - allocate and de-allocate resources for each active process; multiple processes want access to the same resource
+  - protect the data and physical resources of each process against interference by other processes
+  - ensure that a process and its output must be independent of the speed at which its execution is carried out relative to the speed of other concurrent processes
+
+
+
+### 4.1.3 Resource Competition
+
+- Concurrent processes come into conflict when they are competing for use of the same resource such as I/O devices, memory, and processor time
+- In the case of competing processes, three control problems must be faced
+  - Need for mutual exclusion
+  - Deadlock
+  - Starvation
+
+
+
+## 4.2 Mutual Exclusion
+
+- The problem concerns a group of processes which need access to some resource that cannot be used simultaneously by more than one single process.
+- Control of competition involves the OS because it is the OS that allocates resources
+- The processes themselves also need to be able to express the requirement for mutual exclusion
+- **Critical Section**: The piece of code within a process that accesses a shared resource (data structure or device) that must not be concurrently accessed by other processes
+- It is important that only one program at a time be allowed in its critical section
+
+```c++
+int ra;
+void P()
+{
+    while (true)
+    {
+        // preceding code
+        entercritical(ra);
+        // critical section code
+        exitcritical(ra);
+    }
+}
+```
+
+Any process that attempts to enter its critical section while another process is in its critical section is made to wait
+
+
+
+### 4.2.1 Requirements for Mutual Exclusion
+
+Any facility that is to provide support for mutual exclusion should meet the following requirements:
+
+- Mutual exclusion must be enforced: only one process at a time is allowed into its critical section, among all processes that have critical sections for the same resource
+- A process that halts in its noncritical section must do so without interfering with other processes
+- No deadlock or starvation
+- When no process is in a critical section, any process that request entry to its critical section must be permitted to enter without delay
+- No assumptions are made about relative process speeds or number of processes
+- A process remains inside its critical section for a finite time only
+
+
+
+### 4.2.2 Hardware Support Methods
+
+#### 4.2.2.1 Disabling Interrupts
+
+Since uniprocessors only allow interleaving, no overlapping, to guarantee mutual exclusion, it is sufficient to prevent a process from being interrupted while it is in the critical section
+
+```c++
+while (true)
+{
+    // disable interrupts
+    // critical section
+    // enable interrupts
+}
+```
+
+However, it does not work for multiprocessors since processes may be overlapped.
+
+
+
+#### 4.2.2.2 Compare-and-Swap
+
+- A compare is made between a memory value and a test value
+- If the values are the same, a swap occurs
+
+```c++
+int cas(int *word, int testval, int newval)
+{
+    int oldval = *word;
+    if (oldval == testval)
+        *word = newval;
+    return oldval;
+}
+```
+
+```c++
+// program mutual exclusion
+const int n =; // number of processes;
+int bolt;
+void P(int i)
+{
+    while (true)
+    {
+        while (cas(bolt, 0, 1) == 1); // do nothing
+        // critical section
+        bolt = 0;
+        // remainder
+    }
+}
+
+int main()
+{
+    bolt = 0;
+    parbegin(P(0), P(1), P(2), ... ,P(n));
+}
+```
+
+In this example, only the first process can get a return value 0 for `cas()` and it will enter its critical section. Other processes go into a **busy waiting** mode.
+
+
+
+Advantages:
+
+- Applicable to any number of processes on either a single processor or multiple processors sharing main memory
+- Simple and easy to verify
+- It can be used to support multiple critical sections, each critical section can be defined by its own variable
+
+
+
+Disadvantages:
+
+- Busy-waiting mode consumes processor time
+- Starvation is possible. When a process leaves a critical section and more than one process is waiting, the selection of a waiting process is arbitrary; some process could indefinitely be denied access.
+- Deadlock is possible.
+  - P1 enters its critical section and is then preempted by a higher-priority P2
+  - P2 attempts to use the same resource as P1 but is denied access because of the mutual exclusion mechanism
+  - P2 goes into a busy waiting loop
+  - The lower-priority P1 will never be dispatched
+
+
+
+## 4.3 Semaphores
+
+### 4.3.1 Principles of Semaphores
+
+Fundamental principle: multiple processes can cooperate by means of simple signals such that a process can be forced to stop at a specified place until it has received a specific signal.
+
+Semaphore: an integer value used for signalling among processes
+
+Three operations on a semaphore are all atomic:
+
+- Initialize to a non-negative integer value
+- semWait decrements the semaphore value: to receive a signal
+- semSignal increments the semaphore value: to transmit a signal
+
+
+
+The semaphore is initialized to zero or a positive value. When the value is positive, that value equals the number of processes that can issue a wait and immediately continue to execute.
+
+When the value is zero, the next process to issue a wait is blocked, and the semaphore value goes negative.
+
+- Each subsequent wait further decrements the value
+- The negative value equals the number of processes waiting to be unblocked.
+
+Each signal unblocks one of the waiting processes, if any.
+
+See lecture note for semaphore primitives and binary semaphore primitives.
+
+
+
+Example:
+
+```c++
+const int n = number of processes;
+semaphore s = 1;
+void P(int i)
+{
+    while (true)
+    {
+        semWait(s);
+        // critical section
+        semSignal(s);
+        // remainder
+    }
+}
+void main()
+{
+    parbegin(P(1), P(2), ..., P(n));
+}
+```
+
+In this example, the first process will be able to enter the critical section immediately, setting the value of s to 0. Any other processes attempting to enter the critical section will be blocked, s is decremented. When the first process departs, s is incremented and one of the blocked processes (if any) becomes ready.
+
+
+
+
+
+### 4.3.2 Mutex
+
+- A concept related to the binary semaphore is the mutex.
+- Two operations for mutex: `lock()` and `unlock()`
+- When a process tries to lock a mutex
+  - It may require the lock if the mutex is not being locked
+  - Or it may fail and enter in a waiting mode if the mutex is being locked
+- When a process tries to unlock a mutex
+  - It releases the lock and makes the mutex available for another process to lock
+
+- A key difference between binary semaphore and mutex is that the process that locks the mutex must be the one to unlock it: i.e., a process cannot unlock a mutex that is not locked by itself
+
+
+
+### 4.3.3 Strong/Weak Semaphore
+
+- A queue is used to hold processes waiting on the semaphore
+  - In what order are processes removed from the queue?
+- Strong semaphores use FIFO: the process that has been blocked the logest is released from the queue first.
+- Weak semaphores do not specify the order of removal from the queue
+
+
+
+### 4.3.4 Producer/Consumer Problem
+
+- General Statement:
+  - One or more producers are generating data and placing these in a buffer
+  - A single consumer is taking items out of the buffer one at time
+  - Only one producer or consumer may access the buffer at any one time
+- The problem
+  - We need to ensure that the producer can't add data into full buffer and consumer can't remove data from empty buffer
+
+We first consider a buffer of infinite size. The idea is to let consumer be blocked when removing from empty buffer (i.e., ZERO item in the buffer), and unblocked when an item is inserted by the producer (>0 number of items in the buffer)
+
+A semaphore, n = number of items in the buffer, can be used to implement the idea
+
+```c++
+// program producer and consumer with infinite buffer size
+semaphore n = 0, s = 1; // n is equal to the number of items in the buffer
+void producer()
+{
+    while (true)
+    {
+        produce();
+        semWait(s);
+        append();
+        semSignal(s);
+        semSignal(n);
+    }
+}
+
+void consumer()
+{
+    while (true)
+    {
+        semWait(n);
+        semWait(s);
+        take();
+        semSignal(s);
+        consume();
+    }
+}
+```
+
+
+
+Now let's consider a buffer with a bounded size.
+
+| Block on                           | Unblock on              |
+| ---------------------------------- | ----------------------- |
+| Producer: Insert in full buffer    | Consumer: Item inserted |
+| Consumer: remove from empty buffer | Producer: Item removed  |
+
+Create another semaphore e = number of empty spaces in the buffer, can be used to implemented the block and unblock condition. Same idea as creating n.
+
+
+
+```c++
+// program producer and consumer with infinite buffer size
+semaphore n = 0, s = 1, e = sizeof buffer // n is equal to the number of items in the buffer
+void producer()
+{
+    while (true)
+    {
+        produce();
+        semWait(e);
+        semWait(s);
+        append();
+        semSignal(s);
+        semSignal(n);
+    }
+}
+
+
+void consumer()
+{
+    while (true)
+    {
+        semWait(n);
+        semWait(s);
+        take();
+        semSignal(s);
+        semSignal(e);
+        consume();
+    }
+}
+```
+
+
+
+## 4.4 Message Passing
+
+- When processes interact with one another, they may need to specify two fundamental requirements:
+
+  - Synchronization: to enforce mutual exclusion
+  - Communication: to exchange information
+
+- Message passing is one approach to providing both of these functions
+
+- The actual function is normally procided in the form of a pair of primitives
+
+  `send(dest, message)`, `receive(source, message)`
+
+- If P1 and P2 wish to communicate, they must send messages to and receive messages from each other
+
+  - A communication link must exist between them
+
+
+
+### 4.4.1 Direct Communication
+
+- Processes must name each other explicitly:
+  - `send(P1, message)` - send a message to process P1
+  - `receive(P2, message)` - receive a message from process P2
+- Properties of communication link
+  - The processes need to know each other's identity to communicate
+  - A link is associated with exactly two processes
+  - Between each pair of processes, there exists exactly one link
+
+
+
+### 4.4.2 Indirect Communication
+
+- Messages are directed to and received from mailboxes (also referred to as ports)
+  - `boxid = mailbox_create(IDENTIFIER)`
+  - `send(boxid, message)`
+  - `receive(boxid, message)`
+- One process sends a message to the mailbox and the other process picks up the message from the mailbox
+- Properties of communication link
+  - A link is established between a pair of processes only if they have a shared mailbox
+  - A link may be associated with many processes
+  - Each pair of processes may have several links, each link corresponds to one mailbox
+
+
+
+- One-to-one relationship
+  - allows a private communication link to be set up between two processes
+- Many-to-one relationship
+  - useful for client/server interaction, one process provides service to a number of other processes
+  - the mailbox is often referred to as a port
+- One-to-many relationship
+  - allows for one sender and multiple receivers
+  - useful for applications where a message is to be broadcast to a set of processes
+- Many-to-many relationship
+  - allows multiple server processes to provide concurrent service to multiple clients
+
+
+
+### 4.4.3 Synchronization
+
+- Message passing may be either blocking or non-blocking
+- Blocking is considered synchronous
+  - Blocking send: the sender is blocked until the message is received
+  - Blocking receive: the receiver is blocked until a message arrives
+- Non-blocking is considered asynchronous
+  - Non-blocking send: the sender sends the message and continues
+  - Non-blocking receive: the receiver receives the message or abandons the attempt to receive and continues
+
+
+
+We can use messages to achieve mutual exclusion
+
+```c++
+const int n = ; // number of processes
+void P(int i)
+{
+    message msg;
+    while (true)
+    {
+        receive(box, msg); // blocking receive
+        // critical section
+        send(box, msg);	// non-blocking send
+        // remainder
+    }
+}
+
+void main()
+{
+    create mailbox(box);
+    send(box, null);
+    parbegin(P(1), P(2), ... , P(n));
+}
+```
+
+
+
+Messages can also be used to solve producer/consumer problem
+
+```c++
+const int capacity = ; // buffering capacity
+const int null = ; // empty message
+int i;
+void producer()
+{
+    message pmsg;
+    while (true)
+    {
+        receive(mayproduce, pmsg);
+        pmsg = produce();
+        send(mayconsume, pmsg);
+    }
+}
+
+void consumer()
+{
+    message cmsg;
+    while (true)
+    {
+        receive(mayconsume, cmsg);
+        consume(cmsg);
+        send(mayproduce, null);
+    }
+}
+
+int main()
+{
+    create_mailbox(mayproduce);
+    create_mailbox(mayconsume);
+    for (int i = 1; i <= capacity; i++) send(mayproduce, null);
+    parbegin(producer, consumer);
+}
+```
+
+
+
+## 4.5 Readers/Writers Problem
+
+### 4.5.1 Problem Description
+
+A data area is shared among many processes. Some processes only read the data area (headers), some only write to data area (writers)
+
+Conditions to satisfy:
+
+1. Any number of readers may simultaneously read the file
+2. Only one writer at a time may write to the file
+3. If a writer is writing to a file, no reader may read it
+
+
+
+### 4.5.2 Solution with Readers having Priority (Writer Starvation)
+
+```c++
+// program readerandwriters
+int readcount;
+semaphore x = 1, wsem = 1;
+void reader()
+{
+    while (true)
+    {
+        semWait(x);
+        readcount++;
+        if (readcount == 1) semWait(wsem);
+        semSignal(x);
+        READUNIT();
+        semWait(x);
+        readcount--;
+        if (readcount == 1) semSignal(wsem);
+        semSignal(x);
+    }
+}
+
+void writer()
+{
+    while (true)
+    {
+        semWait(wsem);
+        WRITEUNIT();
+        semSignal(wsem);
+    }
+}
+
+void main()
+{
+    readcount = 0;
+    parbegin(reader, writer);
+}
+```
+
+However, this solution only allows writers to write when there is no reader. Writers are subject to starvation.
+
+
+
+### 4.5.3 Solution with Writers having Priority
+
+An alternative solution will be: no new readers are allowed access to the data area once at least one writer wants to write.
+
+```c++
+int readcount, writecount;
+semaphore x = 1, y = 1, z = 1, wsem = 1, rsem = 1;
+
+void writer()
+{
+    whlie (true)
+    {
+        semWait(y);	// y controls the updating of writecount, which may only be 0 or 1
+        writecount++;
+        if (writecount == 1) semWait(rsem);	// rsem inhibits all readers while there is
+        // at least one writer desiring access to the data area
+        semWait(wsem);
+        WRITEUNIT();
+        semSignal(wsem);
+        semWait(y);
+        writecount--;
+        if (writecount == 0) semSignal(rsem);
+        semSignal(y);
+    }
+}
+
+void reader()
+{
+    whlie (true)
+    {
+        semWait(z);	// only one reader is allowed to queue on rsem, with any 
+        // additional readers queuing on z
+        	semWait(rsem);
+        		semWait(x);
+        			readcount++;
+        			if (readcount == 1) semWait(wsem);
+        		semSignal(x);
+        	semSignal(rsem);
+        semSignal(z);
+        READUNIT();
+        semWait(x);
+        	readcount--;
+        	if (readcount == 0) semSignal(wsem);
+        semSignal(x);
+    }
+}
+
+void main()
+{
+    readcount = writecount = 0;
+    parbegin(reader, writer);
+}
+```
+
+
+
+This figure illustrates different R/W conditions and the program's action to them
+
+<img src="images/readerandwriter.png" style="zoom:75%" />
+
+
+
+### 4.5.4 Solution with Message Passing
+
+```c++
+void reader(int i)
+{
+    message rmsg;
+    while (true)
+    {
+        rmsg = i;
+        send(readrequest, rmsg);
+        receive(mbox[i], rmsg);
+        READUNIT();
+        rmsg = i;
+        send(finished, rmsg);
+    }
+}
+
+void writer()
+{
+    message rmsg;
+    while (true)
+    {
+        rmsg = j;
+        send(writerequest, rmsg);
+        receive(mbox[i], rmsg);
+        WRITEUNIT();
+        rmsg = j;
+        send(finished, rmsg);
+    }
+}
+
+// count is set to the number of simultaneous readers (100 here)
+void controller()
+{
+    whlie (true)
+    {
+        if (count > 0)
+        {
+            if (!empty(finished))
+            {
+                receive(finished, msg); // does not block since the mailbox finished is not empty
+                count++;
+            }
+            else if (!empty(writerequest))
+            {
+                receive(writerequest, rmsg);
+                write_id = msg.id;
+                count = count - 100;
+            }
+            else if (!empty(readrequest))
+            {
+                receive(readrequest, msg);
+                count--;
+                send(msg.id, "OK");
+            }
+        }
+        if (count == 0)
+        {
+            send(writer_id, "OK");
+            receive(finished, msg);
+            count = 100;
+        }
+        while (count < 0)
+        {
+            receive(finished, msg); // blocks because of no condition check
+            count++;
+        }
+    }
+}
+```
+
+**Explanation to the Program**
+
+Process wishing to access the data area send a request message to the controller
+
+- Granted access with an "OK" reply message
+- Completion of access with a "finished" message
+
+Use of the variable `count`
+
+- Initialized to 100
+- `count > 0`: no writer is waiting, clear active readers first, then service write requests and then read requests
+- `count = 0`: the only request outstanding is a write request
+- `count < 0`: a writer has made a request and is being made to wait to clear all active readers
+
+Writers have priority
+
+- The controller services write requests before read requests
+
+Readers only and readers can read simultaneously
+
+- After receiving a read request, the controller sends "OK" and does not block to receive "finished" `(count > 0)`. Other read requests can also be received
+
+Writers only and only one writer can write at a time
+
+- After receiving a write request, the controller sends "OK" and blocks to receive "finished" `(count == 0)`. Cannot continue until the writer finishes.
+
+Both readers and writers and read first (i.e., a writer arrives while the first reader is reading)
+
+- The controller receives the write request and makes the writer to wait until receiving "finished" from the first reader `(count < 0)`
+- When the first reader finishes, the controller sends "OK" to the writer and blocks to receive finished `(count == 0)`
+
+Both readers and writers and write first (i.e., a reader arrives while the first writer is writing)
+
+- The controller blocks to receive "finished" while the first writer is writing `(count == 0)`
+- When the first writer finishes, the controller receives the read request and send "OK" to the reader `(count > 0)`
+
+ 

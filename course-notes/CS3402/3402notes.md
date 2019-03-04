@@ -1455,7 +1455,7 @@ Remember:
 #### 5.2.2.2  Key and Primary Key
 
 - If a relation has several candidate keys, one is chosen arbitrarily to be the primary key and the primary key attributes are underlined.
-- For the CAR example, we can choose either $K_1$ or $K_2$ to be the primary key.
+- For the CAR example, we can choose either $K_1​$ or $K_2​$ to be the primary key.
 - The primary key value is used to uniquely identify each tuple in a relation
 - General Rule: Choose as primary key the smallest of the candidate keys (in terms of size). Better to choose $K_2$ as the primary key for CAR.
 
@@ -1484,3 +1484,63 @@ Other attributes of R may be constrained to disallow null values, even though th
 
 
 
+## 5.5 Displaying a Relational Database Schema and its Constraints
+
+- Each relation schema can be displayed as a row of attribute names
+- The name of the relation is written above the attribute names
+- The primary key attribute (or attributes) will be underlined
+- A foreign key (referential integrity constraint) is displayed as a directed arc (arrow) from the foreign key attributes to the reference table
+- Here is an example of the COMPANY relational schema diagram with referential integrity constraints
+
+![referential-integrity-constraints](images/referential-integrity-constraints.png)
+
+
+
+- Referential integrity constraints typically arise from the relationships among the entities represented by the relation
+- For example, in the EMPLOYEE relation, the attribute Dno refers to DEPARTMENT for which an employee works. We designate Dno to be a foreign key of EMPLOYEE referencing the DEPARTMENT.
+- A value of Dno in any tuple $t_1$ of the EMPLOYEE relation must match a value of the primary key of DEPARTMENT, Dnumber, in the same tuple $t_2$ of the DEPARTMENT relation or the value of Dno can be NULL if the employee does not belong to a department or will be assigned to a department later.
+
+
+
+## 5.6 Update Operations on Relations
+
+The update options contain INSERT, DELETE, and MODIFY.
+
+Update:
+
+- Integrity constraints should not be violated by the update operations
+- Update the department number of "Research" from "001" to "R001"
+- Several update operations may have to be grouped together
+- Updates may propogate to cause other updates automatically. This may be necessary to maintain integrity constraints.
+
+DELETE:
+
+- DELETE may violate only referential integrity if the primary key value of the tuple being deleted is referenced from other tuples in the database
+
+INSERT may violate any of the constraints
+
+- Domain constraint: if one of the attribute values provided for the new tuple is not of the specified attribute domain
+- Key constraint: if the value of a key attribute in the new tuple already exists in another tuple in the relation
+- Referential integrity: if a foreign key value in the new tuple references a primary key value that does not exist in the reference relation
+- Entity integrity: if the primary key value is null in the new tuple
+
+
+
+In case of integrity violation, several actions can be taken:
+
+- Cancel the operation that causes the violation
+- Perform the operation but inform the user of the violation
+- Trigger additional updates so the violation is corrected
+- Execute a user-specified error-correction routine
+
+
+
+## 5.7 Adding Constraints in SQL
+
+![constraints-sql](images/constraints-sql.png)
+
+![naming-constraints-sql](images/naming-constraints-sql.png)
+
+![sql-referential-constraints-1](images/sql-referential-constraints-1.png)
+
+![sql-referential-constraints-2](images/sql-referential-constraints-2.png)
