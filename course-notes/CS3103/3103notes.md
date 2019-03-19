@@ -1565,3 +1565,253 @@ Both readers and writers and write first (i.e., a reader arrives while the first
 - When the first writer finishes, the controller receives the read request and send "OK" to the reader `(count > 0)`
 
  
+
+# 5 Lecture 5 — Concurrency, Deadlock and Starvation
+
+## 5.1 Principles of Deadlock
+
+**Deadlock** is the permanent blocking of a set of processes that either compete for system resources or communicate with each other.
+
+A set of processes is deadlocked when each process in the set is blocked awaiting an event that can only be triggered by another blocked process in the set. Typically, the event is the freeing up of some requested and obtained resources. There is *no* efficient solution.
+
+
+
+### 5.1.1 Deadlock in Different Resource Categories
+
+There are two general categories of resources:
+
+1. Reusable resources
+   - Can be safely used by only one process at a time and is not depleted by that use
+   - Examples: processors, main memory, storage space, devices, and data structures such as files, databases, and semaphores
+2. Consumable resources
+   - One that can be created (produced) and destroyed (consumed)
+   - Examples: interrupts, signals, messages, and information in I/O buffers
+
+
+
+#### 5.1.1.1 Deadlock in Reusable Resources
+
+Example 1: Consider two processes that compete for exclusive access to a disk file D and a tape drive T. Deadlock occurs if each process holds one resource and requests the other, e.g., execution of $p_0, p_1, q_0, q_1,p_2,q_2$.
+
+![memory-request-deadlock](images/memory-request-deadlock.png)
+
+Deadlock occurs if both processes progress to their second request.
+
+
+
+#### 5.1.1.2 Deadlock in Consumable Resources
+
+Example: Consider a pair of processes, in which each process attempts to receive a message from the other process and then send a message to the other process. Deadlock occurs if the Receive is blocking (i.e., the receiving process is blocked until the message is received).
+
+![consumable-deadlock](images/consumable-deadlock.png)
+
+Some design errors are often embedded in complex program logic, making it difficult to detect.
+
+
+
+### 5.1.2 Resource Allocation Graphs
+
+Resource allocation graph is a useful tool that characterizes the allocation of resources to processes. Directed graph that depicts a state of the system of resources and processes.
+
+![resource-allocation-graph](images/resource-allocation-graph.png)
+
+
+
+### 5.1.3 Conditions for Possible Deadlock
+
+1. Mutual exclusion
+   - Only one process may use a resource at a time
+   - No process may access a resource unit that has been allocated to another process
+2. Hold-and-wait
+   - A process may hold allocated resources while awaiting assignment of others
+3. No pre-emption
+   - No resource can be forcibly removed from a process holding it
+4. Circular wait
+   - A closed chain of processes exists, such that each process holds at least one resource needed by the next process in the chain
+   - This is in fact the definition of deadlock
+
+<img src="images/circular-wait.png" style="zoom:75%" />
+
+
+
+### 5.1.4 Dealing with Deadlock
+
+Three general approaches exist for dealing with deadlock.
+
+- Deadlock prevention
+
+  Disallow one of the three necessary conditions for deadlock occurrence, or prevent circular wait condition from happening
+
+- Deadlock avoidance
+
+  Do not grant a resource request if this allocation might lead to deadlock
+
+- Deadlock detection
+
+  Grant resource requests when possible, but periodically check for the presence of deadlock and take action to recover
+
+
+
+## 5.2 Deadlock Prevention
+
+The main idea of deadlock prevention is to design a system in such a way that the possibility of deadlock is excluded.
+
+Two main methods:
+
+- Indirect - prevent the occurrence of one of the three necessary conditions
+- Direct - prevent the occurrence of a circular wait
+
+1. Mutual exclusion
+   - If access to a resource requires mutual exclusion, then it must be supported by the OS
+2. Hold and wait
+   - Require a process request all of its required resources at one time and OS will block the process until all requests can be granted simultaneously
+   - Inefficient and may be impractical
+3. No preemption
+   - If a process hold certain resources is denied a further request, that process must release its original resources and request them again
+   - If a process requests a resource that is currently held by another process, the OS may preempt the second process and require it to release its resources
+   - Practical only for resources whose state can be easily saved and restored later
+
+4. Circular wait
+   - Define a **linear ordering** of resource types: If a process has been allocated resources of type R, then it may subsequently request only those resources of types following R in the ordering
+   - Inefficient, slowing down processes and denying resource access unnecessarily
+
+
+
+## 5.3 Deadlock Avoidance
+
+A decision is made **dynamically** whether the current resource allocation resource will, **if granted**, potentially lead to a deadlock
+
+- Allows more concurrency than prevention
+- Requires knowledge of future process requests
+
+Two types denials:
+
+- Process initiation denial: Do not start a process if its demands might lead to deadlock
+- Resource allocation denial: Do not grant an incremental resource request to a process if this allocation might lead to deadlock
+
+
+
+### 5.3.1 Process Initiation Denial
+
+A process is only started if the maximum denial (maximum requirement for each resource) of all current processes plus those of the new process can be met by the total amount of resources in the system.
+
+This approach is not optimal because it assumes the worst case that all processes will make their maximum claims together. 
+
+
+
+### 5.3.2 Resource Allocation Denial: Banker's Algorithm
+
+Resource allocation denial is referred to as the banker's algorithm, which is a strategy of resource allocation denial.
+
+Consider a system with a fixed number of resources:
+
+- State of the system is the current allocation of resources to processes
+- Safe state is one in which there is at least one sequence of resource allocations to processes that does not result in deadlock, i.e., all processes can be run to completion
+- Unsafe state is a state that is not safe
+
+
+
+Banker's algorithm is used when a process requests for some resources. It tests whether it is a safe state or not provided that this piece of resource is guaranteed.
+
+We need the following variables
+
+1. Claim matrix: $C_{m\times n}$, where $m$ is the number of processes and $n$ is the number of types of resources, representing requirement of process $i$ for resource $j$.
+2. Allocation matrix $A_{m\times n}$ representing the current allocation to process $i$ of resource $j$.
+3. Resource vector $R$ representing total amount of each resource.
+4. Available vector $V$ representing amount of each resource available for allocation.
+
+
+
+To determine whether process $i$ can run to completion, we need to know if the resources allocated to it plus remaining resources it needs will still be less than the avaliable resources, that is:
+$$
+C_{ij}-A_{ij}\le V_j, \text{for all }j
+$$
+Consider the following example:
+
+![bankers-algorithm](images/bankers-algorithm.png)
+
+P2 can run to completion, followed by P1, P3, and P4. This is a sequence that the all processes will run to completion. Therefore, it is a safe state.
+
+ 
+
+When a process makes a request for a set of resources, OS assumes that the request is granted and update the system state accordingly. Then it determines if the result is a safe state. If so, grant the request. If not, it blocks the process until it is safe to grant the request.
+
+
+
+Advantages:
+
+1. Less restrictive than deadlock prevention
+2. Not necessary to preempt and rollback processes as in deadlock detection
+
+Restrictions:
+
+1. Maximum resource requirement for each process must be stated in advance
+2. Processes under consideration must be independent and with no synchronisation requirements
+3. There must be a fixed number of resources to allocate
+4. No process may exit while holding resources
+
+
+
+## 5.4 Deadlock Detection
+
+While deadlock prevention strategies which limit access to resources and impose restrictions on processes are very conservative, deadlock detection strategies do the opposite, it:
+
+- Resource requests are granted whenever possible
+- Regularly check for deadlock
+
+
+
+### 5.4.1 A Common Detection Algorithm
+
+Main idea:
+
+- Find and mark a process whose resource requests can be satisfied with the available resources
+- Assume that those resources are granted and that the process runs to completion and releases all its resources
+- Look for another process to satisfy
+- A deadlock exists if and only if there are unmarked processes at the end
+
+
+
+We use an allocation matrix and available vector as in the Banker's Algorithm. We also use a request matrix $Q_{m\times n}$, where $Q_{ij}$ indicates that an amount of resource $j$ is requested by process $i$
+
+```pseudocode
+unmark all processes
+vector(1*n) w = Available
+loop until all no process is marked
+	for all unmarked process i
+		t = w - Q[i,:]
+		if all t[j] >= 0
+			mark process j
+			w = w + A[j]	// A is the allocation matrix
+if exists unmarked process
+	return deadlocked
+```
+
+
+
+#### 5.4.1.1 Related Issues
+
+##### 5.4.1.1.1 Timing
+
+A check for deadlock can be made
+
+- As frequently as each resource request
+  - Leads to early detection
+  - The algorithm is relatively simple
+  - Frequent checks consume considerable processor time
+- Or check it less frequently, depending on how likely it is for a deadlock to occur
+
+
+
+##### 5.4.1.1.2 Recovery Strategies
+
+1. Abort all deadlocked processes
+2. Backup (rollback) each deadlocked process to some previously defined checkpoint, and restart all processes. This approach has a risk of deadlock recurring
+3. Successively abort deadlocked processes until deadlock no longer exists
+4. Successively preempt resources and rollback the preempted process until deadlock no longer exists
+
+
+
+## 5.5 Dining Philosophers Problem
+
+This part is omitted.

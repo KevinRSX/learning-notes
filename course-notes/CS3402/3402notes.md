@@ -217,7 +217,7 @@ In relational model, we will adapt to some terminologies.
 
 1. Step 1: Mapping of strong entity types
 
-   - For each regular entity type E, create a relation R that includees all the simple attributes of E, and choose one of the key attributes E as the primary key for R.
+   - For each regular entity type E, create a relation R that includes all the simple attributes of E, and choose one of the key attributes E as the primary key for R.
    - R is called an entity relation. Each tuple in R represents an entity instance.
    - For example, entity E with k simple attributes $a_1, a_2, ..., a_k$, where $a_1$ is a key attribute, and entity set $\left\{ e_1, e_2, ..., e_k \right\}$.
 
@@ -247,7 +247,7 @@ In relational model, we will adapt to some terminologies.
    - b) Merged relationship approach
      - Merge the two entity types and the relationship into a single relation
    - Cross reference or relationship relation approach (with relations S and T)
-     - Set up a third relation R for the purpose of cross-referencing the primary keys of the two relations S and T representing the entiy types
+     - Set up a third relation R for the purpose of cross-referencing the primary keys of the two relations S and T representing the entity types
      - Relation R will include the primary key attributes of S and T as foreign keys to S and T respectively
      - The primary key of R will be one of the two foreign keys
      - Add the simple attributes of the original relationship to R
@@ -334,8 +334,6 @@ SQL is a comprehensive database language with:
 - Rules for embedding SQL statements into a general-purpose programming language
 
  
-
-<!--more-->
 
 ## 3.1 SQL Data Definition and Data Types
 
@@ -533,23 +531,17 @@ Examples:
 SELECT *
 FROM EMPLOYEE
 Dno = 5;
-
-
 ```
 
 ```sql
 SELECT *
 FROM EMPLOYEE, DEPARTMENT
 WHERE Dname = 'Research' AND Dno = Dnumber;
-
-
 ```
 
 ```sql
 SELECT *
 FROM EMPLOYEE, DEPARTMENT;
-
-
 ```
 
 
@@ -567,8 +559,6 @@ Q11
 ```sql
 SELECT ALL Salary
 FROM EMPLOYEE;
-
-
 ```
 
 Q11A
@@ -576,8 +566,6 @@ Q11A
 ```sql
 SELECT DISTINCT Salary
 FROM EMPLOYEE;
-
-
 ```
 
 
@@ -1066,7 +1054,7 @@ Examples:
 
 2. Select the employee tuples whose salary is greater than $30,000
 
-   $\sigma_{SALARY>30,000}(EMPLOYEE)$
+   $\sigma_{SALARY>30,000}(EMPLOYEE)​$
 
    It is equivalent to the sql statement:
 
@@ -1347,7 +1335,11 @@ The implicit join condition includes each pair of attributes with the same name 
 The division operation is applied to two relations R and S
 
 - $R(Z)\div S(X)​$, where X is a subset of Z
-- Let $Y=Z-X$, the result of DIVISION is a relation $T(Y)$ that includes a tuple $t$ if $t_R$ appear in R with $t_R[Y]=t$, and with $t_R[X]=t_s$ for every tuple $t_s​$ in S
+- Let $Y=Z-X$, the result of DIVISION is a relation $T(Y)$ that includes a tuple $t$ if $t_R$ appear in R with $t_R[Y]=t$, and with $t_R[X]=t_s$ for every tuple $t_s$ in S
+
+Example of division:
+
+![division](images/division.png)
 
 
 
