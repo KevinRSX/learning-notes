@@ -1,8 +1,4 @@
-
-
-# 1 Lecture 1 -- Computer System & OS Overview
-
-Based on Chapter 1 and 2 in textbook.
+ # 1 Lecture 1 -- Computer System & OS Overview
 
 ## 1.1 Basic Elements
 
@@ -97,7 +93,7 @@ Consider the following example showing the difference between no interruption, s
 
 Case 1: No interrupts. When the technique is not used, the processor has to wait for the whole I/O operation to be completed. As the I/O operation takes time longer than the processor in million times order, it wastes the use of the processor a lot.
 
-Case 2: Interrupts with shor I/O wait. The processor will proceed to the next operation while letting the I/O module execute the order itself. In this case, the I/O command will finish before the processor completes the next instruction. Therefore, it issues an interruption to let processor deal with the I/O operations, which takes only a short period of time.
+Case 2: Interrupts with short I/O wait. The processor will proceed to the next operation while letting the I/O module execute the order itself. In this case, the I/O command will finish before the processor completes the next instruction. Therefore, it issues an interruption to let processor deal with the I/O operations, which takes only a short period of time.
 
 Case 3: As in case 2, the processor lets the I/O module execute the I/O command. However, after it completes the next instruction, it may needs to wait for the I/O module to finish the command.
 
@@ -115,13 +111,11 @@ To process the interrupt, the processor needs to find the way to store the curre
 
 - Uniprogramming: only one program is running at a given time.
 
-  The processor spends a certain amount of time executing. until it reaches an I/O instruction. It must then wait until that I/O instruction conclues before proceeding.
+  The processor spends a certain amount of time executing until it reaches an I/O instruction. It must then wait until that I/O instruction conclues before proceeding.
 
 - Multiprogramming: processor has more than one program to execute.
 
   When one job needs to wait for I/O, the processor can switch to the other job.
-
-(More notes about how it is different from multiprocessing will be added later on)
 
 ![multiprogramming-example](images/multiprogramming-example.png)
 
@@ -151,7 +145,7 @@ Going from top to down along the hierarchy, we shall observe
 
 ### 1.5.1 Cache Memory
 
-We know that the processor must access memory at least once per instruction cycle. Thus processor execution is limited by memory cycle time. buy processor speed is much faster than memory access speed.
+We know that the processor must access memory at least once per instruction cycle. Thus processor execution is limited by memory cycle time. The problem is processor speed is much faster than memory access speed, that makes main memory the bottleneck of processor speed.
 
 The solution to this performance gap could be copying information in use from slower to faster (but smaller) storage temporarily. The storage is exactly cache.
 
@@ -171,6 +165,8 @@ By analysing a simple two-level memory, we shall find that the relationship is l
 Data which is required soon is often close to the current data. If data is accessed, then it's neighbors might also be accessed in the near future.
 
 **Spatial locality** refers to the tendency of execution to involve a number of memory locations that are clustered while **temporal locality** refers to the tendency for a processor to access memory locations that have been used recently.
+
+Spatial locality can be exploited by using larger cache blocks and temporal locality can be exploited by keeping the most recently used instructions and data values in the cache memory.
 
 
 
@@ -408,7 +404,7 @@ OS manages the use of system resource by processes.
 
 <img src="images/process-and-resources.png" style="zoom:75%" />
 
-In this snapshot, process $P_1$ is running and it has 2 I/O devices; $P_2$ is blocked waiting in memory for an I/O device allocated to $P_1$; $P_n$ has been swapped out and is suspended.
+In this snapshot, process $P_1$ is running and it has 2 I/O devices; $P_2$ is blocked waiting in memory for an I/O device allocated to $P_1$; $P_n​$ has been swapped out and is suspended.
 
 
 
@@ -706,8 +702,6 @@ We know that processes have two characteristics:
   - A process has an execution state and a dispatching priority, and is the entity that is scheduled and dispatched by the OS.
 
 
-
-<!--more-->
 
 These two characteristics can be treated independently by OS.
 
@@ -1212,7 +1206,7 @@ void consumer()
 
 - Message passing is one approach to providing both of these functions
 
-- The actual function is normally procided in the form of a pair of primitives
+- The actual function is normally provided in the form of a pair of primitives
 
   `send(dest, message)`, `receive(source, message)`
 
@@ -1411,6 +1405,7 @@ void writer()
         writecount++;
         if (writecount == 1) semWait(rsem);	// rsem inhibits all readers while there is
         // at least one writer desiring access to the data area
+      	semSignal(y);
         semWait(wsem);
         WRITEUNIT();
         semSignal(wsem);
@@ -1814,4 +1809,76 @@ A check for deadlock can be made
 
 ## 5.5 Dining Philosophers Problem
 
-This part is omitted.
+### 5.5.1 Problem Statement
+
+The life of a philosopher consists of *thinking* and *eating spaghetti*. A philosopher requires two forks to eat spaghetti.  A philosopher wishing to eat goes to his assigned place and uses the two forks on either side of the plate to eat some spaghetti.
+
+<img src="images/dining-philosopher.png" style="zoom:50%" />
+
+We are required to devise an algorithm so that each philosopher is allowed to eat such that:
+
+- No two philosophers can use the same fork at the same time (mutual exclusion)
+- No philosopher must starve to death (avoid deadlock and starvation)
+
+**This is a representative problem to illustrate basic problems in deadlock and starvation**.
+
+
+
+### 5.5.2 Naive Solution and Associated Problem
+
+The most obvious solution is to use semaphore to let each fork be occupied by only one philosopher.
+
+```c++
+semaphore fork[5] = {1};
+int i;
+void philosopher(int i)
+{
+  while (true)
+  {
+    think();
+    wait(fork[i]);
+    wait(fork[i + 1] % 5);
+    eat();
+    signal(fork[i + 1] % 5);
+    signal(fork[i]);
+  }
+}
+
+void main()
+{
+  parbegin(philosopher(0), ..., philosopher(4));
+}
+```
+
+However, this solution is flawed. If each philosopher picks up the fork on his left, and all other philosopher cannot pick up the fork on his right. They all subject to starvation. This suggests that we cannot let all philosophers seat and pick the forks simultaneously.
+
+
+
+### 5.5.3 Avoiding Deadlock
+
+We can add another semaphore to disallow all philosopher eat at the same time.
+
+```c++
+semaphore fork[5] = {1};
+semaphore room = {4};
+int i;
+void philosopher(int i)
+{
+  while (true)
+  {
+    think();
+    wait(room);
+    wait(fork[i]);
+    wait(fork[i + 1] % 5);
+    eat();
+    signal(fork[i + 1] % 5);
+    signal(fork[i]);
+    signal(room);
+  }
+}
+
+void main()
+{
+  ...
+}
+```

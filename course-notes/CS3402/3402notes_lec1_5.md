@@ -1536,3 +1536,4 @@ In case of integrity violation, several actions can be taken:
 ![sql-referential-constraints-1](images/sql-referential-constraints-1.png)
 
 ![sql-referential-constraints-2](images/sql-referential-constraints-2.png)
+
