@@ -13,6 +13,6 @@ void Hanoi(int n, char source, char dest, char temp)
 
 int main()
 {
-  Hanoi(3, 'A', 'C', 'B');
+  Hanoi(4, 'A', 'C', 'B');
   return 0;
 }
