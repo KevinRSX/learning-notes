@@ -27,9 +27,3 @@ Java notes. Taken from *Core Java*. This book is hard to read as not many exampl
 ## Python
 
 Python notes. Taken from *python crash course a hands-on project-based introduction to programming*. This one is too messy to read. I consider removing it in the future or refactoring(?) it.
-
-
-
-## CS231n
-
-My additional notes and works on the assignments for Stanford [CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/). Course notes are available on course web.
