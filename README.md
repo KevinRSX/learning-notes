@@ -27,3 +27,9 @@ Java notes. Taken from *Core Java*. This book is hard to read as not many exampl
 ## Python
 
 Python notes. Taken from *python crash course a hands-on project-based introduction to programming*. This one is too messy to read. I consider removing it in the future or refactoring(?) it.
+
+
+
+## Installations
+
+When doing projects, we will often need to install some packages and softwares. This folder collects some resources that may help with part of running codes in case the documentations provided online are not working.
