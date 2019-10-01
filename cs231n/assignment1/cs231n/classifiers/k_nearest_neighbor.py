@@ -77,6 +77,8 @@ class KNearestNeighbor(object):
                 #####################################################################
                 # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
+                dists[i, j] = np.sqrt(np.sum((X[i] - self.X_train[j]) ** 2))
+
                 pass
 
                 # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
@@ -100,6 +102,8 @@ class KNearestNeighbor(object):
             # Do not use np.linalg.norm().                                        #
             #######################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+
+            dists[i, :] = np.sqrt(np.sum((X[i] - self.X_train) ** 2, 1))
 
             pass
 
@@ -131,6 +135,11 @@ class KNearestNeighbor(object):
         #########################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
+        # (x-y)^2 = x^2+y^2-2xy
+        mult_term = 2 * np.dot(X, self.X_train.T)
+        test_term = np.sum(X ** 2, axis=1, keepdims=True)
+        train_term = (np.sum(self.X_train ** 2, axis=1, keepdims=True)).T
+        dists += np.sqrt(train_term + test_term - mult_term)
         pass
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
@@ -164,6 +173,7 @@ class KNearestNeighbor(object):
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
+            closest_y = self.y_train[(np.argsort(dists[i]))[:k]]
             pass
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
@@ -176,6 +186,8 @@ class KNearestNeighbor(object):
             #########################################################################
             # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
+            y_pred[i] = np.argmax(np.bincount(closest_y))
+            
             pass
 
             # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
