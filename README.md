@@ -1,35 +1,16 @@
 # Learning Notes
 
-I take notes when studying, for boosting thoughts instead of giving myself the illusion that I have learnt lots of things. I do not usually keep them as they can be found easily in books and on web. However, sometimes it's better to do some collection when I have to memorize a bunch of disorganized materials. Could be extremely helpful to write up the notes gain to fresh my memory.
+Electronic notes I have taken when taking courses or doing projects. Use [Typora](https://typora.io/) to view the markdown notes as GitHub do not have built-in support for math rendering.
 
-I'd be glad if any of these notes are helpful to others. However, please note that NONE of the notes is self-contained. They may only serve as supportive explanations. All Markdown notes are taken using [Typora](https://typora.io/). I recommend that you use Typora to read those notes because GitHub do not render equations.
-
-
-
-## Cityu Courses
-
-Notes for courses I have taken or am taking in [City University of Hong Kong](https://www.cs.cityu.edu.hk/). I update them as I take courses. Materials I use is mainly the lecture notes and readings provided by instructors.
+I personally do not recommend spending much time on taking extensive notes. However, it's often useful to put things together when the materials presented to you are a bit disorganized. This repository serves as a toolbox that helps recall the high level ideas of these materials in a systematic way.
 
 
 
-## CPP
-
-C++ notes. Taken from *C++ Primer Plus*. I read the Chinese version, typed the examples from the book and took some notes by hand. I will add more advanced notes (could be STL, OOP notes in C++) in the future if I still use C++:)
-
-
-
-## Java
-
-Java notes. Taken from *Core Java*. This book is hard to read as not many examples are given to explain the concepts.
+- `cityu`: courses offered by City University of Hong Kong
+- `columbia`: courses offered by Columbia University
+- `open-course`: open courses available on the Internet.
+- `java`: Core Java Volume I reading notes. No longer maintained.
 
 
 
-## Python
-
-Python notes. Taken from *python crash course a hands-on project-based introduction to programming*. This one is too messy to read. I consider removing it in the future or refactoring(?) it.
-
-
-
-## Installations
-
-When doing projects, we will often need to install some packages and softwares. This folder collects some resources that may help with part of running codes in case the documentations provided online are not working.
+Copyright of captured images to instructors/designers of the courses.

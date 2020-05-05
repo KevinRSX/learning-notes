@@ -1,0 +1,4 @@
+- CS2115 Computer Organization
+- CS3103 Operating Systems
+- CS3201 Computer Networks
+- CS3402 Database Systems
